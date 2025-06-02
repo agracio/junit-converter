@@ -1,0 +1,85 @@
+name: Test
+
+on:
+  push:
+    paths-ignore:
+      - '.github/FUNDING.YML'
+      - '.github/dependabot.yml'
+      - '**/*.md'
+      - '.gitconfig'
+      - '.gitignore'
+      - '.npmignore'
+      - 'LICENSE*'
+      - '.idea/**'
+      - '.vscode/**'
+      - 'README.md'
+      - 'gulpfile.js'
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    name: test-${{ matrix.os }}
+    permissions:
+      checks: write
+      pull-requests: write
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        # os: [macos-latest, ubuntu-latest]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v4
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ matrix.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: npm install
+        run: npm i
+
+      - name: "Run tests"
+        run: npm test
+
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1.3.0
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage/lcov.info
+
+      # - name: publish test-summary nacOS
+      #   if: runner.os == 'macOS'
+      #   uses: EnricoMi/publish-unit-test-result-action/macos@v2
+      #   with:
+      #     check_run_annotations: 'none'
+      #     check_name: 'test-summary-${{ matrix.os }}'
+      #     files: "junit.xml"
+
+      # - name: publish test-summary Linux
+      #   if: runner.os == 'Linux'
+      #   uses: EnricoMi/publish-unit-test-result-action@v2
+      #   with:
+      #     check_run_annotations: 'none'
+      #     check_name: 'test-summary-${{ matrix.os }}'
+      #     files: "junit.xml"
+          
+      # - name: publish test-summary Windows
+      #   if: runner.os == 'Windows'
+      #   uses: EnricoMi/publish-unit-test-result-action/windows@v2
+      #   with:
+      #     check_run_annotations: 'none'
+      #     check_name: 'test-summary-${{ matrix.os }}'
+      #     files: "junit.xml"
+          

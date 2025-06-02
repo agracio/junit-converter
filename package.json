@@ -1,0 +1,52 @@
+{
+  "name": "junit-converter",
+  "version": "1.0.0",
+  "description": "Test report files to JUnit XML converter",
+  "main": "src/converter.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "bin": {
+    "junit-converter": "bin/cli.js"
+  },
+  "author": "agracio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/agracio/junit-converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agracio/junit-converter/issues"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "keywords": [
+    "JUnit",
+    "NUnit",
+    "xUnit",
+    "xUnit.net",
+    "TRX",
+    "MSTest"
+  ],
+  "tags": [
+    "JUnit",
+    "NUnit",
+    "xUnit",
+    "xUnit.net",
+    "TRX",
+    "MSTest"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "p3x-xml2json": "^2025.4.121",
+    "xml-formatter": "^3.6.6",
+    "xslt-processor": "^3.3.1",
+    "yargs": "^18.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0"
+  }
+}

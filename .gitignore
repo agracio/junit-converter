@@ -1,0 +1,17 @@
+node_modules/
+
+coverage.json
+lib/
+coverage/
+publish/
+.idea/workspace.xml
+.idea/*theme*.xml
+.idea/*compiler*.xml
+.idea/*mappings*.xml
+*.tgz
+out/
+report/
+report1/
+tests/data/tmp/
+jest.json
+junit.xml
