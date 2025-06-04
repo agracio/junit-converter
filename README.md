@@ -23,8 +23,6 @@
  - Any nested test suites are flattened.
  - TRX files undergo additional processing to enhance JUnit output.
 
-### JUnit
-
 ### NUnit
 
 - NUnit v3+ XML is supported.
@@ -45,7 +43,7 @@
 - Converts `Output/StdErr` to JUnit **&lt;system-err&gt;**.
 - Converts `Output/StdOut` to JUnit **&lt;system-out&gt;**.
 - Converts Inconclusive and NotExecuted tests to **&lt;skipped&gt;** with message.
-- Test suites are split into multiple **&lt;testsuite&gt;** elements by test classname.
+- Tests are split into multiple **&lt;testsuite&gt;** elements by test classname.
 - Tests are ordered by name.
 - Test suit times are not 100% accurate - displayed as a sum() of all test times. 
 
@@ -66,10 +64,10 @@ let options = {
 // Convert test report to JUnit format and save to file
 converter.toFile(options).then(() => console.log(`JUnit report created`));
 
-// Convert test report to JUnit format and return as 'pretty' string
+// Convert test report to JUnit format and returns as 'pretty' string
 converter.toString(options).then((result) =>{/*do something with result*/});
 
-// Convert test report to JUnit format return as JSON for processing
+// Convert test report to JUnit format and returns as JSON for processing
 converter.toJson(options).then((result) =>{/*do something with result*/});
 ```
 
@@ -91,12 +89,16 @@ junit-converter --testFile mytests/nunit.xml --testType nunit
 | `testType` **(required)** | string  |                                  | [Test report type](https://github.com/agracio/mochawesome-converter#supported-testtype-options) |
 | `reportDir`               | string  | ./report                         | Converted report output path when saving file                                                   |
 | `reportFilename`          | string  | `testFile.name`-junit.json       | JUnit report name  when saving file                                                             |
+| `splitByClassname`        | boolean | false                            | Split into multiple test suites by test classname                                               |
 | `switchClassnameAndName`  | boolean | false                            | Switch test case classname and name                                                             |
 
 - `testFile` - relative or absolute path to input test file.
 - `testType` - type of test report, not case-sensitive.
 - `reportDir` - will be created if path does not exist. Only used when saving to file.
-- `reportFilename` - will be created if path does not exist. only used when saving to file.
+- `reportFilename` - JUnit file name. Only used when saving to file.
+- `splitByClassname` - If true, splits test cases into multiple test suites by classname.  
+ This is useful for test runners that generate tests under a single test suite such as `dotnet test` when using JUnit loggers.  
+ TRX report files are always split by classname, so this option is ignored for TRX files.
 - `switchClassnameAndName` - Switches classname and name attributes of testcase if your test naming data is generated in reverse order.
 
 #### Supported `testType` options.
