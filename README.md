@@ -68,6 +68,9 @@ converter.toFile(options).then(() => console.log(`JUnit report created`));
 
 // Convert test report to JUnit format and return as 'pretty' string
 converter.toString(options).then((result) =>{/*do something with result*/});
+
+// Convert test report to JUnit format return as JSON for processing
+converter.toJson(options).then((result) =>{/*do something with result*/});
 ```
 
 ### CLI usage

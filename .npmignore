@@ -15,3 +15,4 @@ index.js
 jest.config.js
 jest.json
 junit.xml
+*.xml

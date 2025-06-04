@@ -12,6 +12,7 @@ declare module 'junit-converter'{
 
     function toFile(options: TestReportConverterOptions): Promise<void>;
     function toString(options: TestReportConverterOptions): Promise<string>;
+    function toJson(options: TestReportConverterOptions): Promise<string>;
 }
 
 

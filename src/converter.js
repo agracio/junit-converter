@@ -1,6 +1,7 @@
 const fs = require('fs');
 const xmlFormat = require('xml-formatter');
 const xsltProcessor = require('xslt-processor');
+const parser = require('p3x-xml2json');
 const path = require("path");
 const junit = require('./junit');
 const conf = require('./config');
@@ -80,7 +81,32 @@ async function toString(options){
     return await convert(config);
 }
 
+/**
+ * Convert test report to JUnit JSON string.
+ *
+ * @param {TestReportConverterOptions} options
+ */
+async function toJson(options){
+
+    let xmlParserOptions = {
+        object: true,
+        arrayNotation: true,
+        sanitize: false,
+        reversible: true,
+    }
+
+    let str =  await toString(options);
+
+    try{
+        return parser.toJson(str, xmlParserOptions);
+    }
+    catch (e){
+        throw `Could not parse JSON from converted XML ${options.testFile}.\n ${e.message}`;
+    }
+}
+
 module.exports = {
     toFile,
-    toString
+    toString,
+    toJson
 };
