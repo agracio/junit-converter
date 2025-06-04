@@ -83,14 +83,14 @@ junit-converter --testFile mytests/nunit.xml --testType nunit
 
 ### Options
 
-| Option                    | Type    | Default                          | Description                                                                                     |
-|:--------------------------|:--------|:---------------------------------|:------------------------------------------------------------------------------------------------|
-| `testFile` **(required)** | string  |                                  | Path to test file for conversion                                                                |
-| `testType` **(required)** | string  |                                  | [Test report type](https://github.com/agracio/mochawesome-converter#supported-testtype-options) |
-| `reportDir`               | string  | ./report                         | Converted report output path when saving file                                                   |
-| `reportFilename`          | string  | `testFile.name`-junit.json       | JUnit report name  when saving file                                                             |
-| `splitByClassname`        | boolean | false                            | Split into multiple test suites by test classname                                               |
-| `switchClassnameAndName`  | boolean | false                            | Switch test case classname and name                                                             |
+| Option                    | Type    | Default                   | Description                                                                                     |
+|:--------------------------|:--------|:--------------------------|:------------------------------------------------------------------------------------------------|
+| `testFile` **(required)** | string  |                           | Path to test file for conversion                                                                |
+| `testType` **(required)** | string  |                           | [Test report type](https://github.com/agracio/mochawesome-converter#supported-testtype-options) |
+| `reportDir`               | string  | ./report                  | Converted report output path when saving file                                                   |
+| `reportFilename`          | string  | `testFile.name`-junit.xml | JUnit report name  when saving file                                                             |
+| `splitByClassname`        | boolean | false                     | Split into multiple test suites by test classname                                               |
+| `switchClassnameAndName`  | boolean | false                     | Switch test case classname and name                                                             |
 
 - `testFile` - relative or absolute path to input test file.
 - `testType` - type of test report, not case-sensitive.
