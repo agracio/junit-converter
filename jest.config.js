@@ -5,14 +5,14 @@ module.exports = {
         'default',
         ['github-actions', {silent: false}], 
         'summary',
-        ['jest-junit', { suiteName: "mochawesome-converter tests" }]
+        ['jest-junit', { suiteName: "junit-converter tests" }]
         // ["jest-html-reporters", {
         //     publicPath: './tests/report',
         //     filename: 'report.html',
         //     darkTheme: true,
-        //     pageTitle: 'mochawesome-converter',
+        //     pageTitle: 'junit-converter',
         //     expand: true,
-        //     urlForTestFiles: 'https://github.com/agracio/mochawesome-converter/blob/main'
+        //     urlForTestFiles: 'https://github.com/agracio/junit-converter/blob/main'
         //   }
         // ]
     ],

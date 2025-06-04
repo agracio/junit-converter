@@ -1,22 +1,86 @@
+const fs = require('fs');
+const xmlFormat = require('xml-formatter');
+const xsltProcessor = require('xslt-processor');
+const path = require("path");
+const junit = require('./junit');
 const conf = require('./config');
-const xslt = require('./xslt');
 
 /**
- * @param {ConverterOptions} config
+ * @param {ConverterOptions} options
+ * @param {string} xmlString
  */
-async function xsltConverter(config) {
-    await xslt(config, `${config.testType}-junit.xslt`);
+
+async function processXml(options, xmlString){
+    let parsedXml;
+
+    if(options.saveIntermediateFiles){
+        let fileName =  `${path.parse(options.testFile).name}-converted.xml`;
+        fs.writeFileSync(path.join(options.reportDir, fileName), xmlString, 'utf8');
+    }
+
+    try{
+        parsedXml = xmlFormat(xmlString, {forceSelfClosingEmptyTag: true})
+    }
+    catch (e) {
+        throw `\nXML parsed from ${options.testFile} is empty or invalid \n${e.message}`;
+    }
+
+    if(options.testType !== 'trx' && !options.splitByClassname){
+        return parsedXml;
+    }
+    else{
+        return junit.processXml(options, parsedXml);
+    }
 }
 
 /**
- * Convert test report to mochawesome.
- *
- * @param {TestReportConverterOptions} options
+ * @param {ConverterOptions} options
  */
 async function convert(options){
 
     let config = conf.config(options);
-    await xsltConverter(config);
+    let xsltFile =`${config.testType}-junit.xslt`
+
+    let xsltString = fs.readFileSync(path.join(__dirname, xsltFile)).toString();
+    let xmlString = fs.readFileSync(options.testFile).toString();
+
+    const xslt = new xsltProcessor.Xslt();
+    const xmlParser = new xsltProcessor.XmlParser();
+    let xml;
+    try{
+        xml = await xslt.xsltProcess(xmlParser.xmlParse(xmlString), xmlParser.xmlParse(xsltString));
+    }
+    catch (e) {
+        throw `Could not process XML file ${options.testFile} using XSLT ${xsltFile} \n${e.message}`;
+    }
+
+    return await processXml(config, xml);
 }
 
-module.exports = convert;
+
+/**
+ * Convert test report to JUnit XML and write to file.
+ *
+ * @param {TestReportConverterOptions} options
+ */
+async function toFile(options){
+
+    let config = conf.config(options);
+    let result = await convert(config);
+    fs.writeFileSync(path.join(config.reportDir, config.reportFilename), result, 'utf8');
+}
+
+/**
+ * Convert test report to JUnit XML string.
+ *
+ * @param {TestReportConverterOptions} options
+ */
+async function toString(options){
+    let config = conf.config(options);
+    return await convert(config);
+}
+
+module.exports = {
+    toFile,
+    toString
+};

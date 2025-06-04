@@ -28,14 +28,18 @@ function createOptions(file, type, saveIntermediateFiles = false){
 
 /**
  * @param {TestReportConverterOptions} options
- * @param {string?} reportFilename
+ * @param {string} stringReport
  */
-function compare(options){
+function compare(options, stringReport = undefined){
 
     let junitCreatedReport = fs.readFileSync(path.join(outDir, options.reportFilename), 'utf8').replaceAll('\r', '');
     let junitReport = fs.readFileSync(path.join(reportDir, options.reportFilename), 'utf8').replaceAll('\r', '');
 
     expect(junitCreatedReport).toBe(junitReport);
+    if(stringReport){
+        console.log(stringReport)
+        expect(stringReport).toBe(junitReport);
+    }
 }
 
 exports.outDir = outDir;

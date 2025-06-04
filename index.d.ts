@@ -1,14 +1,17 @@
-interface TestReportConverterOptions {
-    testFile: string
-    testType: string
-    reportDir? : string
-    reportFilename? : string
-    switchClassnameAndName?: boolean
-    splitByClassname?: boolean
-    saveIntermediateFiles?: boolean
+declare module 'junit-converter'{
+    interface TestReportConverterOptions {
+        testFile: string
+        testType: string
+        reportDir? : string
+        reportFilename? : string
+        switchClassnameAndName?: boolean
+        splitByClassname?: boolean
+        minify?: boolean
+        saveIntermediateFiles?: boolean
+    }
+
+    function toFile(options: TestReportConverterOptions): Promise<void>;
+    function toString(options: TestReportConverterOptions): Promise<string>;
 }
 
-declare function convert(options: TestReportConverterOptions): Promise<void>;
-
-export default convert;
 

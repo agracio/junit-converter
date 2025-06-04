@@ -56,14 +56,18 @@ npm i --save-dev junit-converter
 ```
 
 ```js
-const convert = require('junit-converter');
+const converter = require('junit-converter');
 
 let options = {
     testFile: 'mytesfiles/nunit.xml',
     testType: 'nunit'
 }
 
-convert(options).then(() => console.log(`JUnit report created`));
+// Convert test report to JUnit format and save to file
+converter.toFile(options).then(() => console.log(`JUnit report created`));
+
+// Convert test report to JUnit format and return as 'pretty' string
+converter.toString(options).then((result) =>{/*do something with result*/});
 ```
 
 ### CLI usage
@@ -82,13 +86,14 @@ junit-converter --testFile mytests/nunit.xml --testType nunit
 |:--------------------------|:--------|:---------------------------------|:------------------------------------------------------------------------------------------------|
 | `testFile` **(required)** | string  |                                  | Path to test file for conversion                                                                |
 | `testType` **(required)** | string  |                                  | [Test report type](https://github.com/agracio/mochawesome-converter#supported-testtype-options) |
-| `reportDir`               | string  | ./report                         | Converted report output path                                                                    |
-| `reportFilename`          | string  | `testFile.name`-junit.json       | JUnit report name                                                                               |
+| `reportDir`               | string  | ./report                         | Converted report output path when saving file                                                   |
+| `reportFilename`          | string  | `testFile.name`-junit.json       | JUnit report name  when saving file                                                             |
 | `switchClassnameAndName`  | boolean | false                            | Switch test case classname and name                                                             |
 
 - `testFile` - relative or absolute path to input test file.
 - `testType` - type of test report, not case-sensitive.
-- `reportDir` - will be created if path does not exist.
+- `reportDir` - will be created if path does not exist. Only used when saving to file.
+- `reportFilename` - will be created if path does not exist. only used when saving to file.
 - `switchClassnameAndName` - Switches classname and name attributes of testcase if your test naming data is generated in reverse order.
 
 #### Supported `testType` options.
@@ -99,7 +104,6 @@ junit-converter --testFile mytests/nunit.xml --testType nunit
 | NUnit      | NUnit v3+ XML     |
 | xUnit      | xUnit.net v2+ XML |
 | TRX        | MSTest TRX        |
-
 
 
 [issues-img]: https://img.shields.io/github/issues-raw/agracio/junit-converter.svg?style=flat-square

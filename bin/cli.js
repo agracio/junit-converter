@@ -15,5 +15,5 @@ yargs
     .version().argv;
 
 const options = (config(yargs.argv));
-convert(yargs.argv).then(() => console.log(`Report created at '${options.reportDir}/'`));
+convert.toFile(yargs.argv).then(() => console.log(`Report created at '${options.reportDir}/'`));
 

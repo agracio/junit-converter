@@ -6,7 +6,7 @@ const expect = require('@jest/globals').expect;
 const test = require('@jest/globals').test;
 const describe = require('@jest/globals').describe;
 
-describe.only("Config tests", () => {
+describe("Config tests", () => {
 
     test('throw if no options are provided', () => {
         expect(() => config.config()).toThrow(/^options are required/);

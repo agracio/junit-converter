@@ -1,4 +1,5 @@
-const convert = require('./src/converter');
+const converter = require('./src/converter');
+const parser = require('p3x-xml2json');
 const {join} = require("node:path");
 const path = require("path");
 const fs = require("fs");
@@ -53,11 +54,12 @@ let trxTests = [
 ];
 
 let junitTests = [
-    'junit-jenkins.xml',
-    'junit-mocha-xunit.xml',
-    'junit-notestsuites.xml',
-    'junit-testsuites-noattributes.xml',
-    'junit-nested.xml',
+    // 'junit-jenkins.xml',
+    // 'junit-mocha-xunit.xml',
+    // 'junit-notestsuites.xml',
+    // 'junit-testsuites-noattributes.xml',
+    // 'junit-nested.xml',
+    'junit-qlnet.xml',
 ];
 
 
@@ -77,12 +79,9 @@ function generateFiles(files, type){
             testFile: join(dir, file),
             testType: type,
             reportDir: 'tests/data/result',
-            junit: true,
-            html: false,
-            reportFilename: `${path.parse(file).name}-mochawesome.json`,
-            htmlReportFilename: `${path.parse(file).name}-mochawesome.html`,
+            splitByClassname: true,
         }
-        convert(options).then(() => console.log('done'));
+        converter.toFile(options).then(() => console.log('done'));
     });
 }
 
@@ -134,8 +133,28 @@ let options={
 
 //convert(options).then(() => console.log(`Report created`));
 
-//fs.writeFileSync('test.txt', 'This is an example with accents : é è à ','utf-8');
+//fs.writeFileSync('test.txt', 'This is an example with accents: é è à ','utf-8');
 
 
 // 213291225
 // 192012476
+
+let xmlParserOptions = {
+    object: true,
+    // arrayNotation: true,
+    sanitize: true,
+    reversible: true,
+}
+const parser2 = require('json-xml-parse');
+let json = parser.toJson(fs.readFileSync(path.join(__dirname, 'test.xml')), xmlParserOptions);
+
+console.log(json);
+// console.log(JSON.stringify(json, null, 2));
+
+console.log(parser.toXml(json, xmlParserOptions))
+// console.log()
+// console.log(parser2.jsXml.toXmlString(json))
+
+
+
+
