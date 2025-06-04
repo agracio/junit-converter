@@ -42,6 +42,7 @@ function config (options) {
   let reportFilename = `${path.parse(options.testFile).name}-junit.xml`;
   let saveIntermediateFiles = false;
   let splitByClassname = false;
+  let minify = false;
 
   if(options.switchClassnameAndName === true || options.switchClassnameAndName === 'true'){
     switchClassnameAndName = true;
@@ -53,6 +54,10 @@ function config (options) {
 
   if(options.saveIntermediateFiles === true || options.saveIntermediateFiles === 'true'){
     saveIntermediateFiles = true;
+  }
+
+  if(options.minify === true || options.minify === 'true'){
+    minify = true;
   }
 
   if(options.reportDir){
@@ -76,6 +81,7 @@ function config (options) {
     reportPath: path.join(reportDir, reportFilename),
     reportFilename: reportFilename,
     splitByClassname: splitByClassname,
+    minify: minify,
     saveIntermediateFiles: saveIntermediateFiles,
   }
 }

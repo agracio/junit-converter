@@ -20,17 +20,20 @@ async function processXml(options, xmlString){
     }
 
     try{
-        parsedXml = xmlFormat(xmlString, {forceSelfClosingEmptyTag: true})
+        parsedXml = options.minify ? xmlFormat.minify(xmlString, {forceSelfClosingEmptyTag: true}) : xmlFormat(xmlString, {forceSelfClosingEmptyTag: true})
     }
     catch (e) {
         throw `\nXML parsed from ${options.testFile} is empty or invalid \n${e.message}`;
     }
 
     if(options.testType !== 'trx' && !options.splitByClassname){
-        return parsedXml;
+        return parsedXml.replaceAll('&#xD;', '');
     }
     else{
-        return junit.processXml(options, parsedXml);
+        return junit.processXml(options, parsedXml)
+            .replaceAll('&amp;#xD;', '')
+            .replaceAll('&amp;gt;', '&gt;')
+            .replaceAll('&amp;lt;', '&lt;');
     }
 }
 

@@ -53,8 +53,6 @@ function sortByClassname(options, json){
         json.testsuites[0].testsuite[0].name = json.testsuites[0].testsuite[0].testcase[0].classname;
     }
 
-    //fs.writeFileSync(path.join(options.reportDir, options.reportFilename), xmlFormat(parser.toXml(json), {forceSelfClosingEmptyTag: true}), 'utf8');
-
     return json;
 }
 
@@ -108,8 +106,8 @@ function processXml(options, xml){
     }
 
     json = sortByClassname(options, json);
-
-    return xmlFormat(parser.toXml(json, xmlParserOptions), {forceSelfClosingEmptyTag: true})
+    xmlParserOptions.sanitize = true;
+    return options.minify ? xmlFormat.minify(parser.toXml(json, xmlParserOptions), {forceSelfClosingEmptyTag: true}) : xmlFormat(parser.toXml(json, xmlParserOptions), {forceSelfClosingEmptyTag: true})
 }
 
 module.exports = {

@@ -28,14 +28,21 @@ describe("JUnit converter tests", () => {
     });
 
     test('junit-mocha-xunit.xml', async() => {
-        let options = common.createOptions('junit-mocha-xunit.xml', 'junit')
+        let options = common.createOptions('junit-mocha-xunit.xml', 'junit');
 
         await converter.toFile(options);
         common.compare(options);
     });
 
     test('junit-nested.xml', async() => {
-        let options = common.createOptions('junit-nested.xml', 'junit', true)
+        let options = common.createOptions('junit-nested.xml', 'junit', true);
+
+        await converter.toFile(options);
+        common.compare(options);
+    });
+    test('junit-qlnet.xml', async() => {
+        let options = common.createOptions('junit-qlnet.xml', 'junit');
+        options.splitByClassname = true;
 
         await converter.toFile(options);
         common.compare(options);

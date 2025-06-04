@@ -7,6 +7,7 @@ interface ConverterOptions{
     reportPath: string
     reportFilename? : string
     splitByClassname?: boolean
+    minify?: boolean
     saveIntermediateFiles?: boolean
 }
 

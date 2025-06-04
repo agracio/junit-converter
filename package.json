@@ -1,6 +1,6 @@
 {
   "name": "junit-converter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Test report files to JUnit XML converter",
   "main": "src/converter.js",
   "types": "index.d.ts",
@@ -39,7 +39,6 @@
     "MSTest"
   ],
   "dependencies": {
-    "json-xml-parse": "^1.3.0",
     "lodash": "^4.17.21",
     "p3x-xml2json": "^2025.4.121",
     "xml-formatter": "^3.6.6",
