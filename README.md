@@ -23,17 +23,24 @@
  - Any nested test suites are flattened.
  - TRX files undergo additional processing to enhance JUnit output.
 
+### JUnit
+
+- Flattens any nested test suites.
+
 ### NUnit
 
 - NUnit v3+ XML is supported.
 - Converts **&lt;properties&gt;** elements to JUnit **&lt;properties&gt;**.
 - Converts **&lt;output&gt;** elements to JUnit **&lt;system-out&gt;**.
+- Converts skipped `test-case` **&lt;reason&gt;** elements to JUnit **&lt;skipped&gt;** with message.
+- Converts `test-case` **&lt;failure&gt;** elements to JUnit **&lt;failure&gt;** with message and stack trace.
 
 ### xUnit.net  
 
 - xUnit.net v2+ XML is supported.
 - Converts **&lt;traits&gt;** elements to  to JUnit **&lt;properties&gt;**.
-- Converts `test` **&lt;reason&gt;** elements to JUnit **&lt;skipped&gt;**.
+- Converts skipped `test` **&lt;reason&gt;** elements to JUnit **&lt;skipped&gt;** with message.
+- Converts `test` **&lt;failure&gt;** elements to JUnit **&lt;failure&gt;** with message and stack trace.
 - Supports single **&lt;assembly&gt;** per file, if multiple assemblies are present only first will be converted.
 
 ### MSTest TRX
@@ -62,12 +69,14 @@ let options = {
 }
 
 // Convert test report to JUnit format and save to file
+// Set minify:true to save minified XML
 converter.toFile(options).then(() => console.log(`JUnit report created`));
 
-// Convert test report to JUnit format and returns as 'pretty' string
+// Convert test report to JUnit format and return as 'pretty' XML string
+// Set minify:true to returm minified XML string
 converter.toString(options).then((result) =>{/*do something with result*/});
 
-// Convert test report to JUnit format and returns as JSON for processing
+// Convert test report to JUnit format and return as JSON object for processing
 converter.toJson(options).then((result) =>{/*do something with result*/});
 ```
 
@@ -90,16 +99,16 @@ junit-converter --testFile mytests/nunit.xml --testType nunit
 | `reportDir`               | string  | ./report                  | Converted report output path when saving file                                                   |
 | `reportFilename`          | string  | `testFile.name`-junit.xml | JUnit report name  when saving file                                                             |
 | `splitByClassname`        | boolean | false                     | Split into multiple test suites by test classname                                               |
-| `switchClassnameAndName`  | boolean | false                     | Switch test case classname and name                                                             |
+| `minify`                  | boolean | false                     | Minify XML result                                                                               |
 
 - `testFile` - relative or absolute path to input test file.
 - `testType` - type of test report, not case-sensitive.
 - `reportDir` - will be created if path does not exist. Only used when saving to file.
 - `reportFilename` - JUnit file name. Only used when saving to file.
 - `splitByClassname` - If true, splits test cases into multiple test suites by classname.  
- This is useful for test runners that generate tests under a single test suite such as `dotnet test` when using JUnit loggers.  
- TRX report files are always split by classname, so this option is ignored for TRX files.
-- `switchClassnameAndName` - Switches classname and name attributes of testcase if your test naming data is generated in reverse order.
+  This is useful for test runners that generate tests under a single test suite such as `dotnet test` when using JUnit loggers.  
+  Should only be set to true if test report file contains single test suite.
+  TRX report files are always split by classname, so this option is ignored for TRX files.
 
 #### Supported `testType` options.
 

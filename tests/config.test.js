@@ -49,7 +49,6 @@ describe("Config tests", () => {
         expect(result.testFile).toBe(path.join(__dirname, 'data/source/xunit-qlnet.xml'));
         expect(result.testType).toBe('xunit');
         expect(result.splitByClassname).toBe(false);
-        expect(result.switchClassnameAndName).toBe(false);
         expect(result.reportDir).toBe('./report');
         expect(result.reportPath).toBe(path.join(result.reportDir, 'xunit-qlnet-junit.xml'));
         expect(result.saveIntermediateFiles).toBe(false);
@@ -60,7 +59,6 @@ describe("Config tests", () => {
             testFile: path.join(__dirname, 'data/source/xunit-qlnet.xml'),
             testType: 'xunit',
             skippedAsPending: false,
-            switchClassnameAndName: true,
             splitByClassname: true,
             reportDir: './report1',
             reportFilename: 'xunit-j.xml',
@@ -72,7 +70,6 @@ describe("Config tests", () => {
         expect(result.testFile).toBe(path.join(__dirname, 'data/source/xunit-qlnet.xml'));
         expect(result.testType).toBe('xunit');
         expect(result.splitByClassname).toBe(true);
-        expect(result.switchClassnameAndName).toBe(true);
         expect(result.reportDir).toBe('./report1');
         expect(result.reportPath).toBe(path.join(result.reportDir, 'xunit-j.xml'));
         expect(result.saveIntermediateFiles).toBe(true);

@@ -19,11 +19,6 @@ export const yargsOptions = {
         describe: 'JUnit report name',
         string: true,
     },
-    switchClassnameAndName: {
-        default: false,
-        describe: 'Switch test case classname and name',
-        boolean: true,
-    },
     splitByClassname: {
         default: false,
         describe: 'Split tests into separate test suites by classname',

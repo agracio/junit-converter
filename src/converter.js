@@ -66,6 +66,7 @@ async function convert(options){
  * Convert test report to JUnit XML and write to file.
  *
  * @param {TestReportConverterOptions} options
+ * @return {Promise<void>}
  */
 async function toFile(options){
 
@@ -78,6 +79,7 @@ async function toFile(options){
  * Convert test report to JUnit XML string.
  *
  * @param {TestReportConverterOptions} options
+ * @return {Promise<string>}
  */
 async function toString(options){
     let config = conf.config(options);
@@ -85,9 +87,10 @@ async function toString(options){
 }
 
 /**
- * Convert test report to JUnit JSON string.
+ * Convert test report to JUnit JSON object.
  *
  * @param {TestReportConverterOptions} options
+ * @return {Promise<Object>}
  */
 async function toJson(options){
 

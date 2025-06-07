@@ -37,16 +37,11 @@ function config (options) {
   let testType = options.testType.toLowerCase();
 
   let skippedAsPending = true;
-  let switchClassnameAndName = false;
   let reportDir = './report';
   let reportFilename = `${path.parse(options.testFile).name}-junit.xml`;
   let saveIntermediateFiles = false;
   let splitByClassname = false;
   let minify = false;
-
-  if(options.switchClassnameAndName === true || options.switchClassnameAndName === 'true'){
-    switchClassnameAndName = true;
-  }
 
   if(options.splitByClassname === true || options.splitByClassname === 'true'){
     splitByClassname = true;
@@ -76,7 +71,6 @@ function config (options) {
     testFile: testFile,
     testType: testType,
     skippedAsPending: skippedAsPending,
-    switchClassnameAndName: switchClassnameAndName,
     reportDir: reportDir,
     reportPath: path.join(reportDir, reportFilename),
     reportFilename: reportFilename,
