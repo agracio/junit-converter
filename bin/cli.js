@@ -2,10 +2,11 @@
 
 const yargs = require('yargs');
 const { yargsOptions } = require('./options');
+const { hideBin } = require('yargs/helpers');
 const { config } = require('../src/config');
 const convert = require('../src/converter');
 
-yargs
+const argv = yargs(hideBin(process.argv))
     .usage('Usage: $0 [options]')
     .example('$0 --testFile mytesfiles/nunit.xml --testType nunit', '')
     .demandOption(['testFile','testType'])
@@ -14,6 +15,6 @@ yargs
     .alias('h', 'help')
     .version().argv;
 
-const options = (config(yargs.argv));
-convert.toFile(yargs.argv).then(() => console.log(`Report created at '${options.reportDir}/${options.reportFilename}'`));
+const options = (config(argv));
+convert.toFile(argv).then(() => console.log(`Report created at '${options.reportDir}/${options.reportFilename}'`));
 

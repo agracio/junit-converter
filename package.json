@@ -1,6 +1,6 @@
 {
   "name": "junit-converter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Test report files to JUnit XML converter",
   "main": "src/converter.js",
   "types": "index.d.ts",
