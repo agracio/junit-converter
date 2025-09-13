@@ -15,7 +15,7 @@
 - JUnit/xUnit XML Format  
 - NUnit v3+ XML Format  
 - xUnit.net v2+ XML Format  
-- MSTest TRX Format  
+- MSTest TRX Format (this is default `dotnet test` report output)  
 
 ### Conversion process
 
@@ -116,12 +116,12 @@ junit-converter --testFile mytests/nunit.xml --testType nunit
 
 #### Supported `testType` options.
 
-| `testType` | File Type         |
-|:-----------|:------------------|
-| JUnit      | JUnit/xUnit XML   |
-| NUnit      | NUnit v3+ XML     |
-| xUnit      | xUnit.net v2+ XML |
-| TRX        | MSTest TRX        |
+| `testType` | File Type                  |
+|:-----------|:---------------------------|
+| JUnit      | JUnit/xUnit XML            |
+| NUnit      | NUnit v3+ XML              |
+| xUnit      | xUnit.net v2+ XML          |
+| TRX        | MSTest TRX (`dotnet test`) |
 
 
 [issues-img]: https://img.shields.io/github/issues-raw/agracio/junit-converter.svg?style=flat-square
