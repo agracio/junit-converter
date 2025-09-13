@@ -41,10 +41,13 @@
 - Converts **&lt;traits&gt;** elements to  to JUnit **&lt;properties&gt;**.
 - Converts skipped `test` **&lt;reason&gt;** elements to JUnit **&lt;skipped&gt;** with message.
 - Converts `test` **&lt;failure&gt;** elements to JUnit **&lt;failure&gt;** with message and stack trace.
-- Supports single **&lt;assembly&gt;** per file, if multiple assemblies are present only first will be converted.
+- Supports single **&lt;assembly&gt;** per file, if multiple assemblies are present, only the first will be converted.
 
 ### MSTest TRX
 
+`dotnet test` generates TRX style files unless different logger is used.`
+
+- Converts `Output/ErrorInfo/ErrorInfo` to JUnit **&lt;failure&gt;** with message.
 - Converts `Output/ErrorInfo/Message` to JUnit **&lt;failure&gt;** message.
 - Converts `Output/ErrorInfo/StackTrace` to JUnit **&lt;failure&gt;** stack trace.
 - Converts `Output/StdErr` to JUnit **&lt;system-err&gt;**.
@@ -86,25 +89,26 @@ converter.toJson(options).then((result) =>{/*do something with result*/});
 npm i -g junit-converter
 ```
 
+#### Convert test report to JUnit format and save to file
 ```bash
 junit-converter --testFile mytests/nunit.xml --testType nunit
 ```
 
 ### Options
 
-| Option                    | Type    | Default                   | Description                                                                                     |
-|:--------------------------|:--------|:--------------------------|:------------------------------------------------------------------------------------------------|
-| `testFile` **(required)** | string  |                           | Path to test file for conversion                                                                |
-| `testType` **(required)** | string  |                           | [Test report type](https://github.com/agracio/mochawesome-converter#supported-testtype-options) |
-| `reportDir`               | string  | ./report                  | Converted report output path when saving file                                                   |
-| `reportFilename`          | string  | `testFile.name`-junit.xml | JUnit report name  when saving file                                                             |
-| `splitByClassname`        | boolean | false                     | Split into multiple test suites by test classname                                               |
-| `minify`                  | boolean | false                     | Minify XML result                                                                               |
+| Option                    | Type    | Default                   | Description                                       |
+|:--------------------------|:--------|:--------------------------|:--------------------------------------------------|
+| `testFile` **(required)** | string  |                           | Path to test file for conversion                  |
+| `testType` **(required)** | string  |                           | [Test report type](#supported-testtype-options)   |
+| `reportDir`               | string  | ./report                  | Converted report output path when saving file     |
+| `reportFile`              | string  | `testFile.name`-junit.xml | JUnit report file name                            |
+| `splitByClassname`        | boolean | false                     | Split into multiple test suites by test classname |
+| `minify`                  | boolean | false                     | Minify XML result                                 |
 
 - `testFile` - relative or absolute path to input test file.
 - `testType` - type of test report, not case-sensitive.
 - `reportDir` - will be created if path does not exist. Only used when saving to file.
-- `reportFilename` - JUnit file name. Only used when saving to file.
+- `reportFile` - JUnit file name. Only used when saving to file.
 - `splitByClassname` - If true, splits test cases into multiple test suites by classname.  
   This is useful for test runners that generate tests under a single test suite such as `dotnet test` when using JUnit loggers.  
   Should only be set to true if test report file contains single test suite.

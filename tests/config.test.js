@@ -61,7 +61,7 @@ describe("Config tests", () => {
             skippedAsPending: false,
             splitByClassname: true,
             reportDir: './report1',
-            reportFilename: 'xunit-j.xml',
+            reportFile: 'xunit-j.xml',
             saveIntermediateFiles: true,
         }
 
@@ -79,5 +79,22 @@ describe("Config tests", () => {
         if(fs.existsSync(result.reportDir)){
             fs.rmdirSync(result.reportDir);
         }
+    });
+
+    test('return correct values using deprecated variable', () => {
+        let options = {
+            testFile: path.join(__dirname, 'data/source/xunit-qlnet.xml'),
+            testType: 'xunit',
+            reportFilename: 'xunit-j.xml',
+        }
+
+        let result = config.config(options)
+
+        expect(result.testFile).toBe(path.join(__dirname, 'data/source/xunit-qlnet.xml'));
+        expect(result.testType).toBe('xunit');
+        expect(result.splitByClassname).toBe(false);
+        expect(result.reportDir).toBe('./report');
+        expect(result.reportPath).toBe(path.join(result.reportDir, 'xunit-j.xml'));
+        expect(result.saveIntermediateFiles).toBe(false);
     });
 });

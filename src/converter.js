@@ -38,7 +38,7 @@ async function processXml(options, xmlString){
 }
 
 /**
- * @param {ConverterOptions} options
+ * @param {TestReportConverterOptions} options
  */
 async function convert(options){
 
@@ -71,8 +71,8 @@ async function convert(options){
 async function toFile(options){
 
     let config = conf.config(options);
-    let result = await convert(config);
-    fs.writeFileSync(path.join(config.reportDir, config.reportFilename), result, 'utf8');
+    let result = await convert(options);
+    fs.writeFileSync(path.join(config.reportDir, config.reportFile), result, 'utf8');
 }
 
 /**
@@ -83,7 +83,8 @@ async function toFile(options){
  */
 async function toString(options){
     let config = conf.config(options);
-    return await convert(config);
+    let result = await convert(options);
+    return result;
 }
 
 /**

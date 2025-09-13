@@ -14,9 +14,9 @@ export const yargsOptions = {
         describe: 'Report output directory',
         string: true,
     },
-    reportFilename: {
+    reportFile: {
         default: undefined,
-        describe: 'JUnit report name',
+        describe: 'JUnit report file name',
         string: true,
     },
     splitByClassname: {

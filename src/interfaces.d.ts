@@ -4,7 +4,7 @@ interface ConverterOptions{
     testType: string,
     reportDir? : string
     reportPath: string
-    reportFilename? : string
+    reportFile? : string
     splitByClassname?: boolean
     minify?: boolean
     saveIntermediateFiles?: boolean

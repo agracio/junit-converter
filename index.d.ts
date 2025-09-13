@@ -3,7 +3,11 @@ declare module 'junit-converter'{
         testFile: string
         testType: string
         reportDir? : string
+        /**
+         * @deprecated Use reportFile instead.
+         */
         reportFilename? : string
+        reportFile? : string
         splitByClassname?: boolean
         minify?: boolean
         saveIntermediateFiles?: boolean

@@ -21,7 +21,7 @@ function createOptions(file, type, saveIntermediateFiles = false){
         testFile: path.join(__dirname, `data/source/${file}`),
         testType: type,
         reportDir: outDir,
-        reportFilename:`${path.parse(file).name}-junit.xml`,
+        reportFile:`${path.parse(file).name}-junit.xml`,
         saveIntermediateFiles: saveIntermediateFiles,
     }
 }
@@ -32,8 +32,8 @@ function createOptions(file, type, saveIntermediateFiles = false){
  */
 function compare(options, stringReport = undefined){
 
-    let junitCreatedReport = fs.readFileSync(path.join(outDir, options.reportFilename), 'utf8').replaceAll('\r', '');
-    let junitReport = fs.readFileSync(path.join(reportDir, options.reportFilename), 'utf8').replaceAll('\r', '');
+    let junitCreatedReport = fs.readFileSync(path.join(outDir, options.reportFile), 'utf8').replaceAll('\r', '');
+    let junitReport = fs.readFileSync(path.join(reportDir, options.reportFile), 'utf8').replaceAll('\r', '');
 
     expect(junitCreatedReport).toBe(junitReport);
     if(stringReport){

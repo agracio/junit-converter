@@ -9,7 +9,7 @@ const TestType = {
 };
 
 /**
- * @param {TestReportConverterOptions} options
+ * @param {{testFile: string, testType: string, reportFilename: string}} options
  * @returns {ConverterOptions}
  */
 function config (options) {
@@ -38,7 +38,7 @@ function config (options) {
 
   let skippedAsPending = true;
   let reportDir = './report';
-  let reportFilename = `${path.parse(options.testFile).name}-junit.xml`;
+  let reportFile = `${path.parse(options.testFile).name}-junit.xml`;
   let saveIntermediateFiles = false;
   let splitByClassname = false;
   let minify = false;
@@ -60,7 +60,11 @@ function config (options) {
   }
 
   if(options.reportFilename){
-    reportFilename = options.reportFilename;
+    reportFile = options.reportFilename;
+  }
+
+  if(options.reportFile){
+    reportFile = options.reportFile;
   }
 
   if(!fs.existsSync(reportDir)){
@@ -72,8 +76,8 @@ function config (options) {
     testType: testType,
     skippedAsPending: skippedAsPending,
     reportDir: reportDir,
-    reportPath: path.join(reportDir, reportFilename),
-    reportFilename: reportFilename,
+    reportPath: path.join(reportDir, reportFile),
+    reportFile: reportFile,
     splitByClassname: splitByClassname,
     minify: minify,
     saveIntermediateFiles: saveIntermediateFiles,
