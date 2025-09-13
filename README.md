@@ -45,7 +45,7 @@
 
 ### MSTest TRX
 
-`dotnet test` generates TRX style files unless different logger is used.`
+`dotnet test` generates TRX style files unless different logger is used.
 
 - Converts `Output/ErrorInfo/ErrorInfo` to JUnit **&lt;failure&gt;** with message.
 - Converts `Output/ErrorInfo/Message` to JUnit **&lt;failure&gt;** message.
