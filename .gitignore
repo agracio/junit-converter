@@ -1,7 +1,6 @@
 node_modules/
 
 coverage.json
-lib/
 coverage/
 publish/
 .idea/workspace.xml

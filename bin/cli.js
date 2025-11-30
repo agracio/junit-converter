@@ -3,8 +3,8 @@
 const yargs = require('yargs');
 const { yargsOptions } = require('./options');
 const { hideBin } = require('yargs/helpers');
-const { config } = require('../src/config');
-const convert = require('../src/converter');
+const { config } = require('../lib/config');
+const convert = require('../lib/converter');
 
 const argv = yargs(hideBin(process.argv))
     .usage('Usage: $0 [options]')

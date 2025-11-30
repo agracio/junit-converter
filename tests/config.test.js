@@ -1,12 +1,12 @@
 'use strict';
 const path = require('path');
-const config = require('../src/config');
+const config = require('../lib/config');
 const fs = require('fs');
 const expect = require('@jest/globals').expect;
 const test = require('@jest/globals').test;
 const describe = require('@jest/globals').describe;
 
-describe("Config tests", () => {
+describe.only("Config tests", () => {
 
     test('throw if no options are provided', () => {
         expect(() => config.config()).toThrow(/^options are required/);
