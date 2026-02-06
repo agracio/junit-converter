@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import xmlFormat from 'xml-formatter';
 import * as _ from 'lodash';
-const parser: any = require('p3x-xml2json');
+import {toJson, toXml} from 'p3x-xml2json';
 import { ConverterOptions, XmlParserOptions, TestSuites, TestCase } from './interfaces';
 
 /**
@@ -89,7 +89,7 @@ export class XmlProcessor {
         let json: TestSuites;
 
         try {
-            json = parser.toJson(xml, xmlParserOptions) as TestSuites;
+            json = toJson(xml, xmlParserOptions) as TestSuites;
         } catch (e) {
             throw new Error(
                 `Could not parse JSON from converted XML ${options.testFile}.\n ${
@@ -130,7 +130,7 @@ export class XmlProcessor {
 
         // Convert back to XML and format
         xmlParserOptions.sanitize = true;
-        const xmlOutput = parser.toXml(json, xmlParserOptions);
+        const xmlOutput = toXml(json, xmlParserOptions);
 
         return options.minify
             ? xmlFormat.minify(xmlOutput, { forceSelfClosingEmptyTag: true })

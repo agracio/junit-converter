@@ -14,37 +14,51 @@ declare module 'junit-converter'{
     }
 
     /**
-     * Test suite JSON representation
-     */
-    interface TestSuite {
-        name: string;
-        tests: string;
-        failures: string;
-        skipped: string;
-        time: string;
-        testcase: TestCase[];
-        file?: string;
-    }
-    /**
-     * Test case JSON representation
-     */
-    interface TestCase {
-        classname: string;
-        name: string;
-        time: number;
-        status?: string;
-        [key: string]: any;
-    }
-    /**
-     * Test suites JSON structure
+     * JUnit JSON structure from XML
      */
     interface TestSuites {
         testsuites: Array<{
-            time?: string | number;
+            name?: string;
+            classname?: string;
+            tests: string | number;
+            failures: string | number;
+            errors?: string | number;
+            skipped: string | number;
+            disabled?: string | number;
+            assertions?: string | number;
+            time: string | number;
+            timestamp?: string;
             testsuite: TestSuite[];
         }>;
     }
 
+    interface TestSuite {
+        name: string;
+        classname?: string;
+        file?: string;
+        tests: string | number;
+        passed?: string | number;
+        failures: string | number;
+        errors?: string | number;
+        skipped: string | number;
+        disabled?: string | number;
+        time: string | number;
+        timestamp?: string;
+        testcase: TestCase[];
+    }
+
+    interface TestCase {
+        name: string;
+        classname: string;
+        status: string;
+        time: string;
+        failure?: any;
+        error?: any;
+        properties?: any;
+        skipped?: any;
+        'system-out'?: any;
+        'system-err'?: any;
+    }
 
     /**
      * Convert test report to JUnit XML and write to file async.
@@ -70,5 +84,3 @@ declare module 'junit-converter'{
      */
     function toJson(options: TestReportConverterOptions): Promise<TestSuites>;
 }
-
-

@@ -43,34 +43,50 @@ export interface XmlParserOptions {
     sanitize: boolean;
     reversible: boolean;
 }
+
 /**
- * Test suite JSON representation
- */
-export interface TestSuite {
-    name: string;
-    tests: string;
-    failures: string;
-    skipped: string;
-    time: string;
-    testcase: TestCase[];
-    file?: string;
-}
-/**
- * Test case JSON representation
- */
-export interface TestCase {
-    classname: string;
-    name: string;
-    time: number;
-    status?: string;
-    [key: string]: any;
-}
-/**
- * Test suites JSON structure
+ * JUnit JSON structure from XML
  */
 export interface TestSuites {
     testsuites: Array<{
-        time?: string | number;
+        name?: string;
+        classname?: string;
+        tests: string | number;
+        failures: string | number;
+        errors?: string | number;
+        skipped: string | number;
+        disabled?: string | number;
+        assertions?: string | number;
+        time: string | number;
+        timestamp?: string;
         testsuite: TestSuite[];
     }>;
+}
+
+export interface TestSuite {
+    name: string;
+    classname?: string;
+    file?: string;
+    tests: string | number;
+    passed?: string | number;
+    failures: string | number;
+    errors?: string | number;
+    skipped: string | number;
+    disabled?: string | number;
+    time: string | number;
+    timestamp?: string;
+    testcase: TestCase[];
+}
+
+export interface TestCase {
+    name: string;
+    classname: string;
+    status: string;
+    time: string;
+    failure?: any;
+    error?: any;
+    properties?: any;
+    skipped?: any;
+    'system-out'?: any;
+    'system-err'?: any;
 }
