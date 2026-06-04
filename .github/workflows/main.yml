@@ -46,7 +46,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: node_modules
-          key: ${{ matrix.os }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ matrix.os }}-${{ matrix.node }}-${{ hashFiles('package-lock.json') }}
 
       - name: npm install
         run: npm i --no-audit
