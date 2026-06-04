@@ -15,3 +15,4 @@ tests/data/tmp/
 jest.json
 *.xml
 tester.js
+tests/data/json/
