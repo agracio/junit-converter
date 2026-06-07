@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import xmlFormat from 'xml-formatter';
 import * as _ from 'lodash';
+import xmlFormat from 'xml-formatter';
 import {toJson, toXml} from 'p3x-xml2json';
 import { ConverterOptions, XmlParserOptions, TestSuites, TestCase } from './interfaces';
 
@@ -15,7 +15,7 @@ export class XmlProcessor {
      * @param json Parsed test suites JSON
      * @returns Modified JSON with sorted test cases
      */
-    static sortByClassname(options: ConverterOptions, json: TestSuites): TestSuites {
+    private static sortByClassname(options: ConverterOptions, json: TestSuites): TestSuites {
         if (!json?.testsuites?.[0]?.testsuite?.[0]?.testcase) {
             return json;
         }

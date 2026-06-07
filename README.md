@@ -83,16 +83,20 @@ converter.toString(options).then((result) =>{/*do something with result*/});
 converter.toJson(options).then((result) =>{/*do something with result*/});
 ```
 
-### CLI usage
+### CLI via NPX
+
+```bash
+npx --yes junit-converter --testFile mytests/nunit.xml --testType nunit 
+```
+
+
+### CLI using global module
 
 ```bash
 npm i -g junit-converter
-```
-
-#### Convert test report to JUnit format and save to file
-```bash
 junit-converter --testFile mytests/nunit.xml --testType nunit
 ```
+
 
 ### Options
 

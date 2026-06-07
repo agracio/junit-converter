@@ -4,9 +4,9 @@
 export interface ConverterOptions {
     testFile: string;
     testType: string;
-    reportDir?: string;
+    reportDir: string;
     reportPath: string;
-    reportFile?: string;
+    reportFile: string;
     splitByClassname?: boolean;
     minify?: boolean;
     saveIntermediateFiles?: boolean;
@@ -32,7 +32,8 @@ export enum TestType {
     JUNIT = "junit",
     NUNIT = "nunit",
     XUNIT = "xunit",
-    TRX = "trx"
+    TRX = "trx",
+    CTRF = "ctrf",
 }
 /**
  * XML Parser options
@@ -69,7 +70,7 @@ export interface TestSuite {
     file?: string;
     tests: string | number;
     passed?: string | number;
-    failures: string | number;
+    failures?: string | number;
     errors?: string | number;
     skipped: string | number;
     disabled?: string | number;

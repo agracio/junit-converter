@@ -1,93 +1,24 @@
 import * as fs from 'fs';
-import xmlFormat from 'xml-formatter';
-import * as xsltProcessor from 'xslt-processor';
 import * as path from 'path';
-import { XmlProcessor } from './junit.js';
+import xmlFormat from 'xml-formatter';
+import { XmlConverter } from './xmlConverter.js';
 import { ConfigService } from './config.js';
-import { ConverterOptions, TestReportConverterOptions, XmlParserOptions, TestSuites } from './interfaces';
+import { TestReportConverterOptions, XmlParserOptions, TestSuites } from './interfaces.js';
+import { CtrfConverter } from './ctrfConverter.js';
 
-// Import p3x-xml2json with any type to avoid strict type checking
-const parser: any = require('p3x-xml2json');
+import {toJson as xmlToJson, toXml as jsonToXml} from 'p3x-xml2json';
 
 /**
  * Main converter service for test reports to JUnit XML
  */
-export class TestReportConverter {
-    private configService = ConfigService;
-    private xmlProcessor = XmlProcessor;
+export class Converter {
 
-    /**
-     * Process converted XML and optionally split by classname
-     * @param {TestReportConverterOptions} options Converter configuration
-     * @param {Promise<string>} xmlString Converted XML string
-     * @returns Formatted XML string
-     * @throws {Error} If XML formatting fails
-     */
-    private async processXml(options: ConverterOptions, xmlString: string): Promise<string> {
-        let parsedXml: string;
-
-        // Save intermediate XML if requested
-        if (options.saveIntermediateFiles) {
-            const fileName = `${path.parse(options.testFile).name}-converted.xml`;
-            const reportDir = options.reportDir || './report';
-            fs.writeFileSync(path.join(reportDir, fileName), xmlString, 'utf8');
-        }
-
-        try {
-            parsedXml = options.minify
-                ? xmlFormat.minify(xmlString, { forceSelfClosingEmptyTag: true })
-                : xmlFormat(xmlString, { forceSelfClosingEmptyTag: true });
-        } catch (e) {
-            throw new Error(
-                `\nXML parsed from ${options.testFile} is empty or invalid \n${
-                    e instanceof Error ? e.message : String(e)
-                }`
-            );
-        }
-
-        if (options.testType !== 'trx' && !options.splitByClassname) {
-            return parsedXml.replaceAll('&#xD;', '');
-        } else {
-            return this.xmlProcessor
-                .processXml(options, parsedXml)
-                .replaceAll('&amp;#xD;', '')
-                .replaceAll('&amp;gt;', '&gt;')
-                .replaceAll('&amp;lt;', '&lt;');
-        }
-    }
-
-    /**
-     * Convert test report to JUnit XML format
-     * @param {TestReportConverterOptions} options Converter configuration
-     * @returns {Promise<string>} Async formatted JUnit XML string
-     * @throws {Error} If XSLT processing fails
-     */
-    private async convert(options: TestReportConverterOptions): Promise<string> {
-        const config = this.configService.config(options);
-        const xsltFile = `../xslt/${config.testType}-junit.xslt`;
-
-        const xsltString = fs.readFileSync(path.join(__dirname, xsltFile), 'utf8');
-        const xmlString = fs.readFileSync(options.testFile, 'utf8');
-
-        const xslt = new xsltProcessor.Xslt();
-        const xmlParser = new xsltProcessor.XmlParser();
-        let xml: string;
-
-        try {
-            xml = await xslt.xsltProcess(
-                xmlParser.xmlParse(xmlString),
-                xmlParser.xmlParse(xsltString)
-            );
-        } catch (e) {
-            throw new Error(
-                `Could not process XML file ${options.testFile} using XSLT ${xsltFile} \n${
-                    e instanceof Error ? e.message : String(e)
-                }`
-            );
-        }
-
-        return await this.processXml(config, xml);
-    }
+    private xmlParserOptions: XmlParserOptions = {
+        object: true,
+        arrayNotation: true,
+        sanitize: false,
+        reversible: true,
+    };
 
     /**
      * Convert test report to JUnit XML and write to file async
@@ -95,11 +26,9 @@ export class TestReportConverter {
      * @throws {Error} If conversion or file writing fails
      */
     async toFile(options: TestReportConverterOptions): Promise<void> {
-        const config = this.configService.config(options);
-        const result = await this.convert(options);
-        const reportDir = config.reportDir || './report';
-        const reportFile = config.reportFile || 'output.xml';
-        fs.writeFileSync(path.join(reportDir, reportFile), result, 'utf8');
+        const config = ConfigService.config(options);
+        const result = config.testType === 'ctrf' ? jsonToXml(CtrfConverter.convert(config), this.xmlParserOptions) : await XmlConverter.convert(config);
+        fs.writeFileSync(path.join(config.reportDir, config.reportFile), result, 'utf8');
     }
 
     /**
@@ -109,7 +38,8 @@ export class TestReportConverter {
      * @throws {Error} If conversion fails
      */
     async toString(options: TestReportConverterOptions): Promise<string> {
-        return await this.convert(options);
+        const config = ConfigService.config(options);
+        return config.testType === 'ctrf' ? xmlFormat(jsonToXml(CtrfConverter.convert(config), this.xmlParserOptions), { forceSelfClosingEmptyTag: true }) : await XmlConverter.convert(config);
     }
 
     /**
@@ -126,22 +56,29 @@ export class TestReportConverter {
             reversible: true,
         };
 
-        const str = await this.toString(options);
-
-        try {
-            return parser.toJson(str, xmlParserOptions) as TestSuites;
-        } catch (e) {
-            throw new Error(
-                `Could not parse JSON from converted XML ${options.testFile}.\n ${
-                    e instanceof Error ? e.message : String(e)
-                }`
-            );
+        if (options.testType === 'ctrf') {
+            const config = ConfigService.config(options);
+            return CtrfConverter.convert(config);
         }
+        else{
+            const str = await this.toString(options);
+
+            try {
+                return xmlToJson(str, xmlParserOptions) as TestSuites;
+            } catch (e) {
+                throw new Error(
+                    `Could not parse JSON from converted XML ${options.testFile}.\n ${
+                        e instanceof Error ? e.message : String(e)
+                    }`
+                );
+            }
+        }
+
     }
 }
 
 // Create singleton instance for backward compatibility
-const converter = new TestReportConverter();
+const converter = new Converter();
 
 // Export instance methods for backward compatibility
 export const toFile = (options: TestReportConverterOptions): Promise<void> => converter.toFile(options);
@@ -153,6 +90,6 @@ export default {
     toFile,
     toString,
     toJson,
-    TestReportConverter,
+    Converter: Converter,
 };
 
