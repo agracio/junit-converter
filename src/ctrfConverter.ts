@@ -9,15 +9,6 @@ export class CtrfConverter {
 
     private static suites: Record<string, TestSuite> = {};
 
-    private getStdOut(title: string, value: string[] | null | undefined, context: MochawesomeContext[]): void {
-        if(value){
-            context.push({
-                title: title,
-                value: value.join('\n'),
-            });
-        }
-    }
-
     private static parseTests(report: CTRFReport) {
         let suiteName: string = 'Root Suite';
 
