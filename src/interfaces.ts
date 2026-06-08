@@ -86,8 +86,8 @@ export interface TestCase {
     time: string;
     failure?: any;
     error?: any;
-    properties?: any;
+    properties?: any[] | any | null;
     skipped?: any;
-    'system-out'?: any;
-    'system-err'?: any;
+    'system-out'?: any[];
+    'system-err'?: any[];
 }

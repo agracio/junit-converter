@@ -40,6 +40,7 @@ export class Converter {
     async toString(options: TestReportConverterOptions): Promise<string> {
         const config = ConfigService.config(options);
         return config.testType === 'ctrf' ? xmlFormat(jsonToXml(CtrfConverter.convert(config), this.xmlParserOptions), { forceSelfClosingEmptyTag: true }) : await XmlConverter.convert(config);
+        //return config.testType === 'ctrf' ? jsonToXml(CtrfConverter.convert(config), this.xmlParserOptions) : await XmlConverter.convert(config);
     }
 
     /**

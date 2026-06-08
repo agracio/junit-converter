@@ -16,6 +16,7 @@
 - NUnit v3+ XML Format  
 - xUnit.net v2+ XML Format  
 - MSTest TRX Format (this is default `dotnet test` report output)  
+- CTRF JSON  
 
 ### Conversion process
 
@@ -30,32 +31,39 @@
 ### NUnit
 
 - NUnit v3+ XML is supported.
-- Converts **&lt;properties&gt;** elements to JUnit **&lt;properties&gt;**.
-- Converts **&lt;output&gt;** elements to JUnit **&lt;system-out&gt;**.
-- Converts skipped `test-case` **&lt;reason&gt;** elements to JUnit **&lt;skipped&gt;** with message.
-- Converts `test-case` **&lt;failure&gt;** elements to JUnit **&lt;failure&gt;** with message and stack trace.
+- Converts &lt;properties&gt; to JUnit &lt;properties&gt;.
+- Converts &lt;output&gt; to JUnit &lt;system-out&gt;.
+- Converts skipped `test-case` &lt;reason&gt; to JUnit &lt;skipped&gt; with message.
+- Converts `test-case` &lt;failure&gt; to JUnit &lt;failure&gt; with message and stack trace.
 
 ### xUnit.net  
 
 - xUnit.net v2+ XML is supported.
-- Converts **&lt;traits&gt;** elements to  to JUnit **&lt;properties&gt;**.
-- Converts skipped `test` **&lt;reason&gt;** elements to JUnit **&lt;skipped&gt;** with message.
-- Converts `test` **&lt;failure&gt;** elements to JUnit **&lt;failure&gt;** with message and stack trace.
-- Supports single **&lt;assembly&gt;** per file, if multiple assemblies are present, only the first will be converted.
+- Converts &lt;traits&gt; to JUnit &lt;properties&gt;.
+- Converts skipped `test` &lt;reason&gt; to JUnit &lt;skipped&gt; with message.
+- Converts `test` &lt;failure&gt; to JUnit &lt;failure&gt; with message and stack trace.
+- Supports single &lt;assembly&gt; per file, if multiple assemblies are present, only the first will be converted.
 
-### MSTest TRX
+### MSTest (dotnet test) TRX
 
 `dotnet test` generates TRX style files unless different logger is used.
 
-- Converts `Output/ErrorInfo/ErrorInfo` to JUnit **&lt;failure&gt;** with message.
-- Converts `Output/ErrorInfo/Message` to JUnit **&lt;failure&gt;** message.
-- Converts `Output/ErrorInfo/StackTrace` to JUnit **&lt;failure&gt;** stack trace.
-- Converts `Output/StdErr` to JUnit **&lt;system-err&gt;**.
-- Converts `Output/StdOut` to JUnit **&lt;system-out&gt;**.
-- Converts Inconclusive and NotExecuted tests to **&lt;skipped&gt;** with message.
-- Tests are split into multiple **&lt;testsuite&gt;** elements by test classname.
+- Converts `Output/ErrorInfo/ErrorInfo` to JUnit &lt;failure&gt; with message.
+- Converts `Output/ErrorInfo/Message` to JUnit &lt;failure&gt; message.
+- Converts `Output/ErrorInfo/StackTrace` to JUnit &lt;failure&gt; stack trace.
+- Converts `Output/StdOut` to JUnit &lt;system-out&gt;.
+- Converts `Output/StdErr` to JUnit &lt;system-err&gt;.
+- Converts Inconclusive and NotExecuted tests to &lt;skipped&gt; with message.
+- Tests are split into multiple &lt;testsuite&gt; elements by test classname.
 - Tests are ordered by name.
-- Test suit times are not 100% accurate - displayed as a sum() of all test times. 
+- Test suit times are not 100% accurate - displayed as a sum() of all test times.  
+
+### CTRF
+
+- Converts `parameters` to JUnit &lt;properties&gt;
+- Converts  `stdout` to JUnit &lt;system-out&gt;.
+- Converts  `stderr` to JUnit &lt;system-err&gt;.
+- Converts `message` and `trace` to JUnit &lt;failure&gt; message with stack trace.
 
 ### Usage
 
@@ -126,6 +134,7 @@ junit-converter --testFile mytests/nunit.xml --testType nunit
 | NUnit      | NUnit v3+ XML              |
 | xUnit      | xUnit.net v2+ XML          |
 | TRX        | MSTest TRX (`dotnet test`) |
+| CTRF       | CTRF JSON                  |
 
 
 [issues-img]: https://img.shields.io/github/issues-raw/agracio/junit-converter.svg?style=flat-square
