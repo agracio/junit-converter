@@ -10,7 +10,7 @@ describe("JUnit converter tests", () => {
         let options = common.createOptions('junit-jenkins.xml', 'junit');
 
         await converter.toFile(options);
-        common.compare(options);
+        common.compare(options, await converter.toString(options));
     });
 
     test('junit-notestsuites.xml', async() => {

@@ -1,0 +1,1379 @@
+<testsuites tests="71" failures="17" errors="0" skipped="13" time="0.8942312999999998">
+    <testsuite name="Pickles.TestHarness.MsTest.AdditionFeature" tests="5" failures="1" skipped="1" time="0.6290434">
+        <testcase classname="Pickles.TestHarness.MsTest.AdditionFeature" name="AddTwoNumbers" status="Passed" time="0.0104597">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Given I have entered 1 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(1) (0.0s)
+And I have entered 2 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(2) (0.0s)
+When I press add
+-&gt; done: AdditionSteps.WhenIPressAdd() (0.0s)
+Then the result should be 3 on the screen
+-&gt; done: AdditionSteps.ThenTheResultShouldBeOnTheScreen(3) (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Addition"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.AdditionFeature" name="AddingSeveralNumbers_40" status="Passed" time="0.3436488">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Given I have entered 40 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(40) (0.0s)
+And I have entered 50 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(50) (0.0s)
+And I have entered 90 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(90) (0.0s)
+When I press add
+-&gt; done: AdditionSteps.WhenIPressAdd() (0.0s)
+Then the result should be 180 on the screen
+-&gt; done: AdditionSteps.ThenTheResultShouldBeOnTheScreen(180) (0.1s)
+            </system-out>
+            <properties>
+                <property name="Parameter:first number" value="40"/>
+                <property name="VariantName" value="40"/>
+                <property name="Parameter:result" value="180"/>
+                <property name="Parameter:third number" value="90"/>
+                <property name="Parameter:second number" value="50"/>
+                <property name="FeatureTitle" value="Addition"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.AdditionFeature" name="AddingSeveralNumbers_60" status="Passed" time="0.0010043">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Given I have entered 60 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(60) (0.0s)
+And I have entered 70 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(70) (0.0s)
+And I have entered 130 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(130) (0.0s)
+When I press add
+-&gt; done: AdditionSteps.WhenIPressAdd() (0.0s)
+Then the result should be 260 on the screen
+-&gt; done: AdditionSteps.ThenTheResultShouldBeOnTheScreen(260) (0.0s)
+            </system-out>
+            <properties>
+                <property name="Parameter:first number" value="60"/>
+                <property name="VariantName" value="60"/>
+                <property name="Parameter:result" value="260"/>
+                <property name="Parameter:third number" value="130"/>
+                <property name="Parameter:second number" value="70"/>
+                <property name="FeatureTitle" value="Addition"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.AdditionFeature" name="FailToAddTwoNumbers" status="Failed" time="0.0912896">
+            <failure message="Test method Pickles.TestHarness.MsTest.AdditionFeature.FailToAddTwoNumbers threw exception:  System.FormatException: Input string was not in a correct format.">
+                at System.Number.StringToNumber(String str, NumberStyles options, NumberBufferamp; number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.String.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at System.Linq.Enumerable.lt;SelectIteratorgt;d__5`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.GetExecuteArguments(BindingMatch match)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.AdditionFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.AdditionFeature.FailToAddTwoNumbers() in C:\Git\pickles\test-harness\MsTest\Addition.feature:line 34
+            </failure>
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Given I have entered 1 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(1) (0.0s)
+And I have entered 2.2 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(2.2) (0.0s)
+When I press add
+-&gt; done: AdditionSteps.WhenIPressAdd() (0.0s)
+Then the result should be 3.2 on the screen
+-&gt; error: Input string was not in a correct format.
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Addition"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.AdditionFeature" name="NotAutomatedAddingTwoNumbers" status="Skipped" time="0.1826410">
+            <skipped message="Assert.Inconclusive failed. No matching step definition found for one or more steps. using System; using TechTalk.SpecFlow;  namespace MyNamespace {     [Binding]     public class StepDefinitions     {         [Given(@&quot;unimplemented step&quot;)]         public void GivenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }                  [When(@&quot;unimplemented step&quot;)]         public void WhenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }                  [Then(@&quot;unimplemented step&quot;)]         public void ThenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }     } } ">
+                at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.AdditionFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.AdditionFeature.NotAutomatedAddingTwoNumbers() in C:\Git\pickles\test-harness\MsTest\Addition.feature:line 46
+            </skipped>
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Given unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Given(@"unimplemented step")]
+        public void GivenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+When unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [When(@"unimplemented step")]
+        public void WhenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+Then unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Then(@"unimplemented step")]
+        public void ThenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Addition"/>
+            </properties>
+        </testcase>
+    </testsuite>
+    <testsuite name="Pickles.TestHarness.MsTest.FailingBackgroundFeature" tests="3" failures="3" skipped="0" time="0.029173200000000003">
+        <testcase classname="Pickles.TestHarness.MsTest.FailingBackgroundFeature" name="AddTwoNumbers" status="Failed" time="0.0057561">
+            <failure message="Test method Pickles.TestHarness.MsTest.FailingBackgroundFeature.AddTwoNumbers threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.AdditionSteps.GivenTheBackgroundStepFails() in C:\Git\pickles\test-harness\AutomationLayer\AdditionSteps.cs:line 25
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.FailingBackgroundFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.FailingBackgroundFeature.AddTwoNumbers() in C:\Git\pickles\test-harness\MsTest\FailingBackground.feature:line 12
+            </failure>
+            <system-out>
+                Given the background step fails
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+And the calculator has clean memory
+-&gt; skipped because of previous errors
+Given I have entered 50 into the calculator
+-&gt; skipped because of previous errors
+And I have entered 70 into the calculator
+-&gt; skipped because of previous errors
+When I press add
+-&gt; skipped because of previous errors
+Then the result should be 120 on the screen
+-&gt; skipped because of previous errors
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Failing Background"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.FailingBackgroundFeature" name="AddingSeveralNumbers_40" status="Failed" time="0.0188548">
+            <failure message="Test method Pickles.TestHarness.MsTest.FailingBackgroundFeature.AddingSeveralNumbers_40 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.AdditionSteps.GivenTheBackgroundStepFails() in C:\Git\pickles\test-harness\AutomationLayer\AdditionSteps.cs:line 25
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.FailingBackgroundFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.FailingBackgroundFeature.AddingSeveralNumbers(String firstNumber, String secondNumber, String thirdNumber, String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\FailingBackground.feature:line 19
+   at Pickles.TestHarness.MsTest.FailingBackgroundFeature.AddingSeveralNumbers_40()
+            </failure>
+            <system-out>
+                Given the background step fails
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+And the calculator has clean memory
+-&gt; skipped because of previous errors
+Given I have entered 40 into the calculator
+-&gt; skipped because of previous errors
+And I have entered 50 into the calculator
+-&gt; skipped because of previous errors
+And I have entered 90 into the calculator
+-&gt; skipped because of previous errors
+When I press add
+-&gt; skipped because of previous errors
+Then the result should be 180 on the screen
+-&gt; skipped because of previous errors
+            </system-out>
+            <properties>
+                <property name="Parameter:first number" value="40"/>
+                <property name="VariantName" value="40"/>
+                <property name="Parameter:result" value="180"/>
+                <property name="Parameter:third number" value="90"/>
+                <property name="Parameter:second number" value="50"/>
+                <property name="FeatureTitle" value="Failing Background"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.FailingBackgroundFeature" name="AddingSeveralNumbers_60" status="Failed" time="0.0045623">
+            <failure message="Test method Pickles.TestHarness.MsTest.FailingBackgroundFeature.AddingSeveralNumbers_60 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.AdditionSteps.GivenTheBackgroundStepFails() in C:\Git\pickles\test-harness\AutomationLayer\AdditionSteps.cs:line 25
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.FailingBackgroundFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.FailingBackgroundFeature.AddingSeveralNumbers(String firstNumber, String secondNumber, String thirdNumber, String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\FailingBackground.feature:line 19
+   at Pickles.TestHarness.MsTest.FailingBackgroundFeature.AddingSeveralNumbers_60()
+            </failure>
+            <system-out>
+                Given the background step fails
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+And the calculator has clean memory
+-&gt; skipped because of previous errors
+Given I have entered 60 into the calculator
+-&gt; skipped because of previous errors
+And I have entered 70 into the calculator
+-&gt; skipped because of previous errors
+And I have entered 130 into the calculator
+-&gt; skipped because of previous errors
+When I press add
+-&gt; skipped because of previous errors
+Then the result should be 260 on the screen
+-&gt; skipped because of previous errors
+            </system-out>
+            <properties>
+                <property name="Parameter:first number" value="60"/>
+                <property name="VariantName" value="60"/>
+                <property name="Parameter:result" value="260"/>
+                <property name="Parameter:third number" value="130"/>
+                <property name="Parameter:second number" value="70"/>
+                <property name="FeatureTitle" value="Failing Background"/>
+            </properties>
+        </testcase>
+    </testsuite>
+    <testsuite name="Pickles.TestHarness.MsTest.MinimalFeatures.FailingFeature" tests="3" failures="1" skipped="1" time="0.0195647">
+        <testcase classname="Pickles.TestHarness.MsTest.MinimalFeatures.FailingFeature" name="FailingFeatureFailingScenario" status="Failed" time="0.0094677">
+            <failure message="Test method Pickles.TestHarness.MsTest.MinimalFeatures.FailingFeature.FailingFeatureFailingScenario threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.MinimalFeatures.MinimalSteps.ThenFailingStep() in C:\Git\pickles\test-harness\AutomationLayer\MinimalFeatures\MinimalSteps.cs:line 24
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.MinimalFeatures.FailingFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.MinimalFeatures.FailingFeature.FailingFeatureFailingScenario() in C:\Git\pickles\test-harness\MsTest\Minimal Features\Failing.feature:line 10
+            </failure>
+            <system-out>
+                Then failing step
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Failing"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.MinimalFeatures.FailingFeature" name="FailingFeatureInconclusiveScenario" status="Skipped" time="0.0051682">
+            <skipped message="Assert.Inconclusive failed. One or more step definitions are not implemented yet.   MinimalSteps.ThenInconclusiveStep()">
+                at Pickles.TestHarness.MsTest.MinimalFeatures.FailingFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.MinimalFeatures.FailingFeature.FailingFeatureInconclusiveScenario() in C:\Git\pickles\test-harness\MsTest\Minimal Features\Failing.feature:line 7
+            </skipped>
+            <system-out>
+                Then inconclusive step
+-&gt; pending: MinimalSteps.ThenInconclusiveStep()
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Failing"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.MinimalFeatures.FailingFeature" name="FailingFeaturePassingScenario" status="Passed" time="0.0049288">
+            <system-out>
+                Then passing step
+-&gt; done: MinimalSteps.ThenPassingStep() (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Failing"/>
+            </properties>
+        </testcase>
+    </testsuite>
+    <testsuite name="Pickles.TestHarness.MsTest.MinimalFeatures.InconclusiveFeature" tests="2" failures="0" skipped="1" time="0.008008">
+        <testcase classname="Pickles.TestHarness.MsTest.MinimalFeatures.InconclusiveFeature" name="InconclusiveFeatureInconclusiveScenario" status="Skipped" time="0.0036970">
+            <skipped message="Assert.Inconclusive failed. One or more step definitions are not implemented yet.   MinimalSteps.ThenInconclusiveStep()">
+                at Pickles.TestHarness.MsTest.MinimalFeatures.InconclusiveFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.MinimalFeatures.InconclusiveFeature.InconclusiveFeatureInconclusiveScenario() in C:\Git\pickles\test-harness\MsTest\Minimal Features\Inconclusive.feature:line 7
+            </skipped>
+            <system-out>
+                Then inconclusive step
+-&gt; pending: MinimalSteps.ThenInconclusiveStep()
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Inconclusive"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.MinimalFeatures.InconclusiveFeature" name="InconclusiveFeaturePassingScenario" status="Passed" time="0.0043110">
+            <system-out>
+                Then passing step
+-&gt; done: MinimalSteps.ThenPassingStep() (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Inconclusive"/>
+            </properties>
+        </testcase>
+    </testsuite>
+    <testsuite name="Pickles.TestHarness.MsTest.MinimalFeatures.PassingFeature" tests="1" failures="0" skipped="0" time="0.0011758">
+        <testcase classname="Pickles.TestHarness.MsTest.MinimalFeatures.PassingFeature" name="PassingFeaturePassingScenario" status="Passed" time="0.0011758">
+            <system-out>
+                Then passing step
+-&gt; done: MinimalSteps.ThenPassingStep() (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Passing"/>
+            </properties>
+        </testcase>
+    </testsuite>
+    <testsuite name="Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature" tests="3" failures="0" skipped="3" time="0.0369842">
+        <testcase classname="Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature" name="NotAutomatedScenario1" status="Skipped" time="0.0127953">
+            <skipped message="Assert.Inconclusive failed. No matching step definition found for one or more steps. using System; using TechTalk.SpecFlow;  namespace MyNamespace {     [Binding]     public class StepDefinitions     {         [Given(@&quot;unimplemented step&quot;)]         public void GivenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }                  [When(@&quot;unimplemented step&quot;)]         public void WhenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }                  [Then(@&quot;unimplemented step&quot;)]         public void ThenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }     } } ">
+                at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature.NotAutomatedScenario1() in C:\Git\pickles\test-harness\MsTest\NotAutomatedAtAll.feature:line 9
+            </skipped>
+            <system-out>
+                Given unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Given(@"unimplemented step")]
+        public void GivenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+Given unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Given(@"unimplemented step")]
+        public void GivenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+When unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [When(@"unimplemented step")]
+        public void WhenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+Then unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Then(@"unimplemented step")]
+        public void ThenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Not Automated At All"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature" name="NotAutomatedScenario2" status="Skipped" time="0.0122999">
+            <skipped message="Assert.Inconclusive failed. No matching step definition found for one or more steps. using System; using TechTalk.SpecFlow;  namespace MyNamespace {     [Binding]     public class StepDefinitions     {         [Given(@&quot;unimplemented step&quot;)]         public void GivenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }                  [When(@&quot;unimplemented step&quot;)]         public void WhenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }                  [Then(@&quot;unimplemented step&quot;)]         public void ThenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }     } } ">
+                at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature.NotAutomatedScenario2() in C:\Git\pickles\test-harness\MsTest\NotAutomatedAtAll.feature:line 14
+            </skipped>
+            <system-out>
+                Given unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Given(@"unimplemented step")]
+        public void GivenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+Given unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Given(@"unimplemented step")]
+        public void GivenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+When unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [When(@"unimplemented step")]
+        public void WhenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+Then unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Then(@"unimplemented step")]
+        public void ThenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Not Automated At All"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature" name="NotAutomatedScenario3" status="Skipped" time="0.0118890">
+            <skipped message="Assert.Inconclusive failed. No matching step definition found for one or more steps. using System; using TechTalk.SpecFlow;  namespace MyNamespace {     [Binding]     public class StepDefinitions     {         [Given(@&quot;unimplemented step&quot;)]         public void GivenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }                  [When(@&quot;unimplemented step&quot;)]         public void WhenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }                  [Then(@&quot;unimplemented step&quot;)]         public void ThenUnimplementedStep()         {             ScenarioContext.Current.Pending();         }     } } ">
+                at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.NotAutomatedAtAllFeature.NotAutomatedScenario3() in C:\Git\pickles\test-harness\MsTest\NotAutomatedAtAll.feature:line 19
+            </skipped>
+            <system-out>
+                Given unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Given(@"unimplemented step")]
+        public void GivenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+Given unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Given(@"unimplemented step")]
+        public void GivenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+When unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [When(@"unimplemented step")]
+        public void WhenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+Then unimplemented step
+-&gt; No matching step definition found for the step. Use the following code to create one:
+        [Then(@"unimplemented step")]
+        public void ThenUnimplementedStep()
+        {
+            ScenarioContext.Current.Pending();
+        }
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Not Automated At All"/>
+            </properties>
+        </testcase>
+    </testsuite>
+    <testsuite name="Pickles.TestHarness.MsTest.OrdinaryUnitTest" tests="1" failures="0" skipped="0" time="0.0080439">
+        <testcase classname="Pickles.TestHarness.MsTest.OrdinaryUnitTest" name="TestMethod" status="Passed" time="0.0080439">
+            <properties>
+                <property name="FeatureTitle" value="Addition"/>
+            </properties>
+        </testcase>
+    </testsuite>
+    <testsuite name="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" tests="40" failures="12" skipped="7" time="0.13823899999999997">
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet0_Pass_1" status="Passed" time="0.0030267">
+            <system-out>
+                Then the scenario will 'pass_1'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_1") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass_1"/>
+                <property name="Parameter:result" value="pass_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet0_Pass_2" status="Passed" time="0.0077930">
+            <system-out>
+                Then the scenario will 'pass_2'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_2") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass_2"/>
+                <property name="Parameter:result" value="pass_2"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet1_Inconclusive_1" status="Skipped" time="0.0063714">
+            <skipped message="Assert.Inconclusive failed. One or more step definitions are not implemented yet.   ScenarioOutlineSteps.ThenTheScenarioWill(&quot;inconclusive_1&quot;)">
+                at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections_(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 45
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet1_Inconclusive_1()
+            </skipped>
+            <system-out>
+                Then the scenario will 'inconclusive_1'
+-&gt; pending: ScenarioOutlineSteps.ThenTheScenarioWill("inconclusive_1")
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="inconclusive_1"/>
+                <property name="Parameter:result" value="inconclusive_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet1_Inconclusive_2" status="Skipped" time="0.0159820">
+            <skipped message="Assert.Inconclusive failed. One or more step definitions are not implemented yet.   ScenarioOutlineSteps.ThenTheScenarioWill(&quot;inconclusive_2&quot;)">
+                at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections_(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 45
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet1_Inconclusive_2()
+            </skipped>
+            <system-out>
+                Then the scenario will 'inconclusive_2'
+-&gt; pending: ScenarioOutlineSteps.ThenTheScenarioWill("inconclusive_2")
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="inconclusive_2"/>
+                <property name="Parameter:result" value="inconclusive_2"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet2_Fail_1" status="Failed" time="0.0049292">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet2_Fail_1 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections_(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 45
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet2_Fail_1()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail_1'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="fail_1"/>
+                <property name="Parameter:result" value="fail_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet2_Fail_2" status="Failed" time="0.0111667">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet2_Fail_2 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections_(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 45
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.AndWeCanGoTotallyBonkersWithMultipleExampleSections__ExampleSet2_Fail_2()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail_2'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="fail_2"/>
+                <property name="Parameter:result" value="fail_2"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealCorrectlyWithBackslashesInTheExamples_CTemp" status="Passed" time="0.0033966">
+            <system-out>
+                When I have backslashes in the value, for example a 'c:\Temp\'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveBackslashesInTheValueForExampleAFilePath("c:\Temp\") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="c:\Temp\"/>
+                <property name="Parameter:file path" value="c:\Temp\"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealCorrectlyWithOverlongExampleValues_PleaseEnterAValidTwoLetterCountryCodeE_G_DE" status="Passed" time="0.0028168">
+            <system-out>
+                When I have a field with value 'Please enter a valid two letter country code (e.g. DE)!'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveAFieldWithValue("Please enter a va...") (0.0s)
+And I have a field with value 'This is just a very very very veery long error message!'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveAFieldWithValue("This is just a ve...") (0.0s)
+Then the scenario will 'pass_1'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_1") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Please enter a valid two letter country code (e.g. DE)!"/>
+                <property name="Parameter:value1" value="Please enter a valid two letter country code (e.g. DE)!"/>
+                <property name="Parameter:value2" value="This is just a very very very veery long error message!"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealCorrectlyWithParenthesisInTheExamples_ThisIsADescriptionAndMore" status="Passed" time="0.0051046">
+            <system-out>
+                When I have parenthesis in the value, for example an 'This is a description (and more)'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveParenthesisInTheValueForExampleAnOverlyDescriptiveField("This is a descrip...") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="This is a description (and more)"/>
+                <property name="Parameter:overly descriptive field" value="This is a description (and more)"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithDuplicateValues_Variant0" status="Passed" time="0.0007108">
+            <system-out>
+                Then the scenario will 'pass'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 0"/>
+                <property name="Parameter:result" value="pass"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithDuplicateValues_Variant1" status="Failed" time="0.0046404">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithDuplicateValues_Variant1 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 90
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithDuplicateValues_Variant1()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 1"/>
+                <property name="Parameter:result" value="fail"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithDuplicateValues_Variant2" status="Skipped" time="0.0026180">
+            <skipped message="Assert.Inconclusive failed. One or more step definitions are not implemented yet.   ScenarioOutlineSteps.ThenTheScenarioWill(&quot;inconclusive&quot;)">
+                at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 90
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithDuplicateValues_Variant2()
+            </skipped>
+            <system-out>
+                Then the scenario will 'inconclusive'
+-&gt; pending: ScenarioOutlineSteps.ThenTheScenarioWill("inconclusive")
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 2"/>
+                <property name="Parameter:result" value="inconclusive"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithDuplicateValues_Variant3" status="Passed" time="0.0003754">
+            <system-out>
+                Then the scenario will 'pass'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 3"/>
+                <property name="Parameter:result" value="pass"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithDuplicateValues_Variant4" status="Failed" time="0.0099106">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithDuplicateValues_Variant4 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 90
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithDuplicateValues_Variant4()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 4"/>
+                <property name="Parameter:result" value="fail"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet0_Variant0" status="Passed" time="0.0006924">
+            <system-out>
+                Then the scenario will 'pass'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 0"/>
+                <property name="Parameter:result" value="pass"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet0_Variant1" status="Failed" time="0.0033728">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet0_Variant1 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 101
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet0_Variant1()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 1"/>
+                <property name="Parameter:result" value="fail"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet0_Variant2" status="Passed" time="0.0003592">
+            <system-out>
+                Then the scenario will 'pass'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 2"/>
+                <property name="Parameter:result" value="pass"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet1_Variant0" status="Failed" time="0.0038395">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet1_Variant0 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 101
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet1_Variant0()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 0"/>
+                <property name="Parameter:result" value="fail"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet1_Variant1" status="Skipped" time="0.0024132">
+            <skipped message="Assert.Inconclusive failed. One or more step definitions are not implemented yet.   ScenarioOutlineSteps.ThenTheScenarioWill(&quot;inconclusive&quot;)">
+                at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 101
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet1_Variant1()
+            </skipped>
+            <system-out>
+                Then the scenario will 'inconclusive'
+-&gt; pending: ScenarioOutlineSteps.ThenTheScenarioWill("inconclusive")
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 1"/>
+                <property name="Parameter:result" value="inconclusive"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet1_Variant2" status="Failed" time="0.0039347">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet1_Variant2 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 101
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet1_Variant2()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 2"/>
+                <property name="Parameter:result" value="fail"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleExampleSectionsWithDuplicateValues_ExampleSet1_Variant3" status="Passed" time="0.0003848">
+            <system-out>
+                Then the scenario will 'pass'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 3"/>
+                <property name="Parameter:result" value="pass"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithDuplicateValues_FirstSet_Variant0" status="Passed" time="0.0006882">
+            <system-out>
+                Then the scenario will 'pass'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 0"/>
+                <property name="ExampleSetName" value="First set"/>
+                <property name="Parameter:result" value="pass"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithDuplicateValues_FirstSet_Variant1" status="Failed" time="0.0046860">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues_FirstSet_Variant1 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 129
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues_FirstSet_Variant1()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 1"/>
+                <property name="ExampleSetName" value="First set"/>
+                <property name="Parameter:result" value="fail"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithDuplicateValues_FirstSet_Variant2" status="Passed" time="0.0004155">
+            <system-out>
+                Then the scenario will 'pass'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 2"/>
+                <property name="ExampleSetName" value="First set"/>
+                <property name="Parameter:result" value="pass"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithDuplicateValues_SecondSet_Variant0" status="Failed" time="0.0024042">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues_SecondSet_Variant0 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 129
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues_SecondSet_Variant0()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 0"/>
+                <property name="ExampleSetName" value="Second set"/>
+                <property name="Parameter:result" value="fail"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithDuplicateValues_SecondSet_Variant1" status="Skipped" time="0.0019703">
+            <skipped message="Assert.Inconclusive failed. One or more step definitions are not implemented yet.   ScenarioOutlineSteps.ThenTheScenarioWill(&quot;inconclusive&quot;)">
+                at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 129
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues_SecondSet_Variant1()
+            </skipped>
+            <system-out>
+                Then the scenario will 'inconclusive'
+-&gt; pending: ScenarioOutlineSteps.ThenTheScenarioWill("inconclusive")
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 1"/>
+                <property name="ExampleSetName" value="Second set"/>
+                <property name="Parameter:result" value="inconclusive"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithDuplicateValues_SecondSet_Variant2" status="Failed" time="0.0031974">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues_SecondSet_Variant2 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 129
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithDuplicateValues_SecondSet_Variant2()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 2"/>
+                <property name="ExampleSetName" value="Second set"/>
+                <property name="Parameter:result" value="fail"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithDuplicateValues_SecondSet_Variant3" status="Passed" time="0.0004019">
+            <system-out>
+                Then the scenario will 'pass'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="Variant 3"/>
+                <property name="ExampleSetName" value="Second set"/>
+                <property name="Parameter:result" value="pass"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithoutDuplicateValues_FirstSet_Fail" status="Failed" time="0.0029115">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithoutDuplicateValues_FirstSet_Fail threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithoutDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 117
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithoutDuplicateValues_FirstSet_Fail()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="fail"/>
+                <property name="ExampleSetName" value="First set"/>
+                <property name="Parameter:result" value="fail"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithoutDuplicateValues_FirstSet_Pass" status="Passed" time="0.0003699">
+            <system-out>
+                Then the scenario will 'pass'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass"/>
+                <property name="ExampleSetName" value="First set"/>
+                <property name="Parameter:result" value="pass"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="DealWithMultipleNamedExampleSectionsWithoutDuplicateValues_SecondSet_Inconclusive" status="Skipped" time="0.0024209">
+            <skipped message="Assert.Inconclusive failed. One or more step definitions are not implemented yet.   ScenarioOutlineSteps.ThenTheScenarioWill(&quot;inconclusive&quot;)">
+                at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithoutDuplicateValues(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 117
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.DealWithMultipleNamedExampleSectionsWithoutDuplicateValues_SecondSet_Inconclusive()
+            </skipped>
+            <system-out>
+                Then the scenario will 'inconclusive'
+-&gt; pending: ScenarioOutlineSteps.ThenTheScenarioWill("inconclusive")
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="inconclusive"/>
+                <property name="ExampleSetName" value="Second set"/>
+                <property name="Parameter:result" value="inconclusive"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="ThisIsAScenarioOutlineWhereAllScenariosPass_Pass_1" status="Passed" time="0.0007628">
+            <system-out>
+                Then the scenario will 'pass_1'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_1") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass_1"/>
+                <property name="Parameter:result" value="pass_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="ThisIsAScenarioOutlineWhereAllScenariosPass_Pass_2" status="Passed" time="0.0004096">
+            <system-out>
+                Then the scenario will 'pass_2'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_2") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass_2"/>
+                <property name="Parameter:result" value="pass_2"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="ThisIsAScenarioOutlineWhereAllScenariosPass_Pass_3" status="Passed" time="0.0133341">
+            <system-out>
+                Then the scenario will 'pass_3'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_3") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass_3"/>
+                <property name="Parameter:result" value="pass_3"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="ThisIsAScenarioOutlineWhereOneScenarioFails_Fail_1" status="Failed" time="0.0048294">
+            <failure message="Test method Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ThisIsAScenarioOutlineWhereOneScenarioFails_Fail_1 threw exception:  NFluent.FluentCheckException:  The checked value is different from the expected one. The checked value:  [True] The expected value:  [False]">
+                at NFluent.Helpers.EqualityHelper.IsEqualTo(Object instance, Object expected)
+   at NFluent.Extensibility.Checker`2.ExecuteCheck(Action action, String negatedExceptionMessage)
+   at AutomationLayer.MarkTestAs.Failing() in C:\Git\pickles\test-harness\AutomationLayer\MarkTestAs.cs:line 15
+   at AutomationLayer.ScenarioOutlineSteps.ThenTheScenarioWill(String result) in C:\Git\pickles\test-harness\AutomationLayer\ScenarioOutlineSteps.cs:line 19
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpanamp; duration)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ThisIsAScenarioOutlineWhereOneScenarioFails(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 34
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ThisIsAScenarioOutlineWhereOneScenarioFails_Fail_1()
+            </failure>
+            <system-out>
+                Then the scenario will 'fail_1'
+-&gt; error: 
+The checked value is different from the expected one.
+The checked value:
+	[True]
+The expected value:
+	[False]
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="fail_1"/>
+                <property name="Parameter:result" value="fail_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="ThisIsAScenarioOutlineWhereOneScenarioFails_Pass_1" status="Passed" time="0.0004433">
+            <system-out>
+                Then the scenario will 'pass_1'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_1") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass_1"/>
+                <property name="Parameter:result" value="pass_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="ThisIsAScenarioOutlineWhereOneScenarioFails_Pass_2" status="Passed" time="0.0009369">
+            <system-out>
+                Then the scenario will 'pass_2'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_2") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass_2"/>
+                <property name="Parameter:result" value="pass_2"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="ThisIsAScenarioOutlineWhereOneScenarioIsInconclusive_Inconclusive_1" status="Skipped" time="0.0029290">
+            <skipped message="Assert.Inconclusive failed. One or more step definitions are not implemented yet.   ScenarioOutlineSteps.ThenTheScenarioWill(&quot;inconclusive_1&quot;)">
+                at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ScenarioCleanup()
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ThisIsAScenarioOutlineWhereOneScenarioIsInconclusive(String result, String[] exampleTags) in C:\Git\pickles\test-harness\MsTest\ScenarioOutlines.feature:line 21
+   at Pickles.TestHarness.MsTest.ScenarioOutlinesFeature.ThisIsAScenarioOutlineWhereOneScenarioIsInconclusive_Inconclusive_1()
+            </skipped>
+            <system-out>
+                Then the scenario will 'inconclusive_1'
+-&gt; pending: ScenarioOutlineSteps.ThenTheScenarioWill("inconclusive_1")
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="inconclusive_1"/>
+                <property name="Parameter:result" value="inconclusive_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="ThisIsAScenarioOutlineWhereOneScenarioIsInconclusive_Pass_1" status="Passed" time="0.0006583">
+            <system-out>
+                Then the scenario will 'pass_1'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_1") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass_1"/>
+                <property name="Parameter:result" value="pass_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenarioOutlinesFeature" name="ThisIsAScenarioOutlineWhereOneScenarioIsInconclusive_Pass_2" status="Passed" time="0.0006310">
+            <system-out>
+                Then the scenario will 'pass_2'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_2") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenario Outlines"/>
+                <property name="VariantName" value="pass_2"/>
+                <property name="Parameter:result" value="pass_2"/>
+            </properties>
+        </testcase>
+    </testsuite>
+    <testsuite name="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" tests="13" failures="0" skipped="0" time="0.023999099999999995">
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisIsAScenarioOutlineWithAmpersand_Pass_1" status="Passed" time="0.0035716">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Then the scenario will 'pass_1'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_1") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="pass_1"/>
+                <property name="Parameter:result" value="pass_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisIsAScenarioOutlineWithGermanUmlautsAouBAOU_Pass_1" status="Passed" time="0.0010769">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Then the scenario will 'pass_1'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_1") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="pass_1"/>
+                <property name="Parameter:result" value="pass_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisIsAScenarioOutlineWithParenthesesHyphenAndComma10_2030_40_Pass_1" status="Passed" time="0.0006523">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Then the scenario will 'pass_1'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("pass_1") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="pass_1"/>
+                <property name="Parameter:result" value="pass_1"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisIsAScenarioWithDanishCharactersAEoaAEOA" status="Passed" time="0.0006395">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Then passing step
+-&gt; done: MinimalSteps.ThenPassingStep() (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisIsAScenarioWithParenthesesHyphenAndComma10_2030_40" status="Passed" time="0.0012821">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Given I have entered 50 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(50) (0.0s)
+And I have entered 70 into the calculator
+-&gt; done: AdditionSteps.GivenIHaveEnteredIntoTheCalculator(70) (0.0s)
+When I press add
+-&gt; done: AdditionSteps.WhenIPressAdd() (0.0s)
+Then the result should be 120 on the screen
+-&gt; done: AdditionSteps.ThenTheResultShouldBeOnTheScreen(120) (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisIsAScenarioWithSpanishCharactersNaeiou" status="Passed" time="0.0007978">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+Then passing step
+-&gt; done: MinimalSteps.ThenPassingStep() (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisScenarioContainsExamplesWithRegex_SpecialCharacters_Variant0" status="Passed" time="0.0020369">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+When I have special characters for regexes in the value, for example a '**'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveSpecialCharactersForRegexesInTheValueForExampleARegex("**") (0.0s)
+Then the scenario will 'PASS'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("PASS") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="Variant 0"/>
+                <property name="Parameter:regex" value="**"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisScenarioContainsExamplesWithRegex_SpecialCharacters_Variant1" status="Passed" time="0.0005376">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+When I have special characters for regexes in the value, for example a '++'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveSpecialCharactersForRegexesInTheValueForExampleARegex("++") (0.0s)
+Then the scenario will 'PASS'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("PASS") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="Variant 1"/>
+                <property name="Parameter:regex" value="++"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisScenarioContainsExamplesWithRegex_SpecialCharacters_Variant2" status="Passed" time="0.0113058">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+When I have special characters for regexes in the value, for example a '.*'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveSpecialCharactersForRegexesInTheValueForExampleARegex(".*") (0.0s)
+Then the scenario will 'PASS'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("PASS") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="Variant 2"/>
+                <property name="Parameter:regex" value=".*"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisScenarioContainsExamplesWithRegex_SpecialCharacters_Variant3" status="Passed" time="0.0004842">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+When I have special characters for regexes in the value, for example a '[]'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveSpecialCharactersForRegexesInTheValueForExampleARegex("[]") (0.0s)
+Then the scenario will 'PASS'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("PASS") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="Variant 3"/>
+                <property name="Parameter:regex" value="[]"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisScenarioContainsExamplesWithRegex_SpecialCharacters_Variant4" status="Passed" time="0.0005661">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+When I have special characters for regexes in the value, for example a '{}'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveSpecialCharactersForRegexesInTheValueForExampleARegex("{}") (0.0s)
+Then the scenario will 'PASS'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("PASS") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="Variant 4"/>
+                <property name="Parameter:regex" value="{}"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisScenarioContainsExamplesWithRegex_SpecialCharacters_Variant5" status="Passed" time="0.0005265">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+When I have special characters for regexes in the value, for example a '()'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveSpecialCharactersForRegexesInTheValueForExampleARegex("()") (0.0s)
+Then the scenario will 'PASS'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("PASS") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="Variant 5"/>
+                <property name="Parameter:regex" value="()"/>
+            </properties>
+        </testcase>
+        <testcase classname="Pickles.TestHarness.MsTest.ScenariosWithSpecialCharactersFeature" name="ThisScenarioContainsExamplesWithRegex_SpecialCharacters_Variant6" status="Passed" time="0.0005218">
+            <system-out>
+                Given the calculator has clean memory
+-&gt; done: AdditionSteps.GivenTheCalculatorHasCleanMemory() (0.0s)
+When I have special characters for regexes in the value, for example a '^.*(?&lt;foo&gt;BAR)\s[^0-9]{3,4}A+$'
+-&gt; done: ScenarioOutlineSteps.WhenIHaveSpecialCharactersForRegexesInTheValueForExampleARegex("^.*(?&lt;foo&gt;BAR)\s[...") (0.0s)
+Then the scenario will 'PASS'
+-&gt; done: ScenarioOutlineSteps.ThenTheScenarioWill("PASS") (0.0s)
+            </system-out>
+            <properties>
+                <property name="FeatureTitle" value="Scenarios With Special Characters"/>
+                <property name="VariantName" value="Variant 6"/>
+                <property name="Parameter:regex" value="^.*(?&lt;foo&gt;BAR)\s[^0-9]{3,4}A+$"/>
+            </properties>
+        </testcase>
+    </testsuite>
+</testsuites>

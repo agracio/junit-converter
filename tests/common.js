@@ -37,8 +37,7 @@ function compare(options, stringReport = undefined){
 
     expect(junitCreatedReport).toBe(junitReport);
     if(stringReport){
-        console.log(stringReport)
-        expect(stringReport).toBe(junitReport);
+        expect(stringReport.replaceAll('\r', '')).toBe(junitReport);
     }
 }
 
