@@ -13,6 +13,7 @@ report/
 report1/
 tests/data/tmp/
 jest.json
-*.xml
+junit.xml
 tester.js
 tests/data/json/
+.idea/
