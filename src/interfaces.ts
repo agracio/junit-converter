@@ -10,7 +10,6 @@ export interface ConverterOptions {
     splitByClassname?: boolean;
     minify?: boolean;
     saveIntermediateFiles?: boolean;
-    skippedAsPending?: boolean;
 }
 /**
  * User-provided options for converter

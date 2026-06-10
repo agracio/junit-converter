@@ -68,7 +68,6 @@ export class ConfigService {
         return {
             testFile,
             testType,
-            skippedAsPending: true,
             reportDir,
             reportPath: path.join(reportDir, reportFile),
             reportFile,

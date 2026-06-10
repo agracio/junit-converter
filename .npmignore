@@ -16,3 +16,4 @@ jest.json
 junit.xml
 *.xml
 tester.js
+ctrf/
