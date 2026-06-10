@@ -20,9 +20,10 @@
 
 ### Conversion process
 
- - All test reports are first converted to JUnit format using XSLT.
+ - All test reports except CTRF are first converted to JUnit format using XSLT.
  - Any nested test suites are flattened.
  - TRX files undergo additional processing to enhance JUnit output.
+ - CTRF reports are converted to custom JSON format and transformed to XML.
 
 ### JUnit
 
@@ -61,9 +62,9 @@
 ### CTRF
 
 - Converts `parameters` to JUnit &lt;properties&gt;
-- Converts  `stdout` to JUnit &lt;system-out&gt;.
-- Converts  `stderr` to JUnit &lt;system-err&gt;.
-- Converts `message` and `trace` to JUnit &lt;failure&gt; message with stack trace.
+- Converts `stdout` to JUnit &lt;system-out&gt;.
+- Converts `stderr` to JUnit &lt;system-err&gt;.
+- Converts `message` and `trace` to JUnit &lt;failure&gt; message with stack trace.  
 
 ### Usage
 
@@ -84,7 +85,7 @@ let options = {
 converter.toFile(options).then(() => console.log(`JUnit report created`));
 
 // Convert test report to JUnit format and return as 'pretty' XML string
-// Set minify:true to returm minified XML string
+// Set minify:true to return minified XML string
 converter.toString(options).then((result) =>{/*do something with result*/});
 
 // Convert test report to JUnit format and return as JSON object for processing
@@ -96,7 +97,6 @@ converter.toJson(options).then((result) =>{/*do something with result*/});
 ```bash
 npx --yes junit-converter --testFile mytests/nunit.xml --testType nunit 
 ```
-
 
 ### CLI using global module
 
@@ -117,14 +117,18 @@ junit-converter --testFile mytests/nunit.xml --testType nunit
 | `splitByClassname`        | boolean | false                     | Split into multiple test suites by test classname |
 | `minify`                  | boolean | false                     | Minify XML result                                 |
 
-- `testFile` - relative or absolute path to input test file.
-- `testType` - type of test report, not case-sensitive.
-- `reportDir` - will be created if path does not exist. Only used when saving to file.
-- `reportFile` - JUnit file name. Only used when saving to file.
-- `splitByClassname` - If true, splits test cases into multiple test suites by classname.  
+- `testFile` - relative or absolute path to input test file.  
+
+- `testType` - type of test report, not case-sensitive.  
+
+- `reportDir` - will be created if path does not exist. Only used when saving to file.  
+
+- `reportFile` - JUnit file name. Only used when saving to file.  
+
+- `splitByClassname` - If true splits test cases into multiple test suites by classname.  
   This is useful for test runners that generate tests under a single test suite such as `dotnet test` when using JUnit loggers.  
   Should only be set to true if test report file contains single test suite.
-  TRX report files are always split by classname, so this option is ignored for TRX files.
+  TRX report files are always split by classname, so this option is ignored for TRX files.  
 
 #### Supported `testType` options.
 

@@ -3,7 +3,7 @@ import * as path from 'path';
 import xmlFormat from 'xml-formatter';
 import { XmlConverter } from './xmlConverter.js';
 import { ConfigService } from './config.js';
-import { TestReportConverterOptions, XmlParserOptions, TestSuites } from './interfaces.js';
+import { TestReportConverterOptions, XmlParserOptions, TestSuites, ConverterOptions } from './interfaces.js';
 import { CtrfConverter } from './ctrfConverter.js';
 
 import {toJson as xmlToJson, toXml as jsonToXml} from 'p3x-xml2json';
@@ -20,6 +20,14 @@ export class Converter {
         reversible: true,
     };
 
+    private xmlFormatterOptions = { forceSelfClosingEmptyTag: true };
+
+    private formatXml(options: ConverterOptions, xml: string): string {
+        return options.minify
+            ? xmlFormat.minify(xml, this.xmlFormatterOptions)
+            : xmlFormat(xml, this.xmlFormatterOptions);
+    }
+
     /**
      * Convert test report to JUnit XML and write to file async
      * @param options Converter configuration
@@ -27,7 +35,15 @@ export class Converter {
      */
     async toFile(options: TestReportConverterOptions): Promise<void> {
         const config = ConfigService.config(options);
-        const result = config.testType === 'ctrf' ? jsonToXml(CtrfConverter.convert(config), this.xmlParserOptions) : await XmlConverter.convert(config);
+        let result;
+        if(config.testType === 'ctrf'){
+            this.xmlParserOptions.sanitize = true;
+            let xml = jsonToXml(CtrfConverter.convert(config), this.xmlParserOptions);
+            result = this.formatXml(config, xml);
+        }
+        else{
+            result = await XmlConverter.convert(config);
+        }
         fs.writeFileSync(path.join(config.reportDir, config.reportFile), result, 'utf8');
     }
 
@@ -39,8 +55,16 @@ export class Converter {
      */
     async toString(options: TestReportConverterOptions): Promise<string> {
         const config = ConfigService.config(options);
-        return config.testType === 'ctrf' ? xmlFormat(jsonToXml(CtrfConverter.convert(config), this.xmlParserOptions), { forceSelfClosingEmptyTag: true }) : await XmlConverter.convert(config);
-        //return config.testType === 'ctrf' ? jsonToXml(CtrfConverter.convert(config), this.xmlParserOptions) : await XmlConverter.convert(config);
+        let result;
+        if(config.testType === 'ctrf'){
+            this.xmlParserOptions.sanitize = true;
+            let xml = jsonToXml(CtrfConverter.convert(config), this.xmlParserOptions);
+            result = this.formatXml(config, xml);
+        }
+        else{
+            result = await XmlConverter.convert(config);
+        }
+        return result;
     }
 
     /**
@@ -93,4 +117,3 @@ export default {
     toJson,
     Converter: Converter,
 };
-

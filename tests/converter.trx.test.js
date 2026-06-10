@@ -72,4 +72,10 @@ describe("TRX converter tests", () => {
         common.compare(options);
     });
 
+    test('trx-pickles-sample.trx', async() => {
+        let options = common.createOptions('trx-pickles-sample.trx', 'trx')
+        await converter.toFile(options);
+        common.compare(options);
+    });
+
 });

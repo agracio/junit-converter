@@ -1,0 +1,476 @@
+{
+  "reportFormat": "CTRF",
+  "specVersion": "0.0.0",
+  "generatedBy": "junit-to-ctrf",
+  "timestamp": "2026-06-10T00:26:12.300Z",
+  "results": {
+    "tool": {
+      "name": "junit-to-ctrf"
+    },
+    "summary": {
+      "tests": 56,
+      "passed": 54,
+      "failed": 1,
+      "skipped": 1,
+      "pending": 0,
+      "other": 0,
+      "start": 0,
+      "stop": 0
+    },
+    "tests": [
+      {
+        "name": "QLNet.Tests.T_DayCounters: testThirty365",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualIsma(isEndOfMonth: False, frequency: Semiannual, interestAccrualDateAsString: \"1999-01-30\", maturityDateAsString: \"2000-06-30\", firstCouponDateAsString: \"1999-07-30\", penultimateCouponDateAsString: \"2000-01-30\", d1AsString: \"1999-07-30\", d2AsString: \"2000-01-30\", expectedYearFraction: 0.5)",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualIsma(isEndOfMonth: False, frequency: Semiannual, interestAccrualDateAsString: \"2003-05-01\", maturityDateAsString: \"2005-05-01\", firstCouponDateAsString: \"2003-11-01\", penultimateCouponDateAsString: \"2004-11-01\", d1AsString: \"2003-11-01\", d2AsString: \"2004-05-01\", expectedYearFraction: 0.5)",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualIsma(isEndOfMonth: False, frequency: Quarterly, interestAccrualDateAsString: \"1999-05-31\", maturityDateAsString: \"2000-04-30\", firstCouponDateAsString: \"1999-08-31\", penultimateCouponDateAsString: \"1999-11-30\", d1AsString: \"1999-11-30\", d2AsString: \"2000-04-30\", expectedYearFraction: 0.41944444444444445)",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualIsma(isEndOfMonth: True, frequency: Quarterly, interestAccrualDateAsString: \"1999-05-31\", maturityDateAsString: \"2000-04-30\", firstCouponDateAsString: \"1999-08-31\", penultimateCouponDateAsString: \"1999-11-30\", d1AsString: \"1999-11-30\", d2AsString: \"2000-04-30\", expectedYearFraction: 0.41576086956521741)",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualIsma(isEndOfMonth: False, frequency: Semiannual, interestAccrualDateAsString: \"2002-08-15\", maturityDateAsString: \"2005-07-15\", firstCouponDateAsString: \"2003-07-15\", penultimateCouponDateAsString: \"2004-07-15\", d1AsString: \"2002-08-15\", d2AsString: \"2003-07-15\", expectedYearFraction: 0.91576086956521741)",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualIsma(isEndOfMonth: False, frequency: Annual, interestAccrualDateAsString: \"1999-02-01\", maturityDateAsString: \"2002-07-01\", firstCouponDateAsString: \"1999-07-01\", penultimateCouponDateAsString: \"2001-07-01\", d1AsString: \"1999-07-01\", d2AsString: \"2000-07-01\", expectedYearFraction: 1)",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualIsma(isEndOfMonth: False, frequency: Semiannual, interestAccrualDateAsString: \"1999-01-30\", maturityDateAsString: \"2000-06-30\", firstCouponDateAsString: \"1999-07-30\", penultimateCouponDateAsString: \"2000-01-30\", d1AsString: \"2000-01-30\", d2AsString: \"2000-06-30\", expectedYearFraction: 0.4175824175824176)",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualIsma(isEndOfMonth: False, frequency: Annual, interestAccrualDateAsString: \"1999-02-01\", maturityDateAsString: \"2002-07-01\", firstCouponDateAsString: \"1999-07-01\", penultimateCouponDateAsString: \"2001-07-01\", d1AsString: \"1999-02-01\", d2AsString: \"1999-07-01\", expectedYearFraction: 0.41095890410958902)",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualIsma(isEndOfMonth: False, frequency: Semiannual, interestAccrualDateAsString: \"2002-08-15\", maturityDateAsString: \"2005-07-15\", firstCouponDateAsString: \"2003-07-15\", penultimateCouponDateAsString: \"2004-07-15\", d1AsString: \"2003-07-15\", d2AsString: \"2004-01-15\", expectedYearFraction: 0.5)",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualOutOfScheduleRange",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testThirty360_ISDA",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testThirty360_EurobondBasis",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualWithSchedule",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testIntraday",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testAct36525",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualWithSemiannualSchedule",
+        "status": "passed",
+        "duration": 17,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testAct366",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActualWithAnnualSchedule",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testOne",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActualActual",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testSimple",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testBusiness252",
+        "status": "passed",
+        "duration": 3,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testActual365_Canadian",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "QLNet.Tests.T_DayCounters: testThirty360_BondBasis",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "QLNet.Tests.T_DayCounters"
+        ]
+      },
+      {
+        "name": "T_AsianOptions: testAnalyticContinuousGeometricAveragePriceGreeks",
+        "status": "passed",
+        "duration": 26,
+        "suite": [
+          "T_AsianOptions"
+        ]
+      },
+      {
+        "name": "T_AsianOptions: testMCDiscreteGeometricAveragePrice",
+        "status": "skipped",
+        "duration": 1,
+        "suite": [
+          "T_AsianOptions"
+        ],
+        "stdout": [
+          "Incomplete"
+        ]
+      },
+      {
+        "name": "T_AsianOptions: testAnalyticDiscreteGeometricAveragePrice",
+        "status": "passed",
+        "duration": 3,
+        "suite": [
+          "T_AsianOptions"
+        ]
+      },
+      {
+        "name": "T_AsianOptions: testIssue115",
+        "status": "passed",
+        "duration": 12,
+        "suite": [
+          "T_AsianOptions"
+        ]
+      },
+      {
+        "name": "T_AsianOptions: testAnalyticDiscreteGeometricAveragePriceGreeks",
+        "status": "passed",
+        "duration": 37,
+        "suite": [
+          "T_AsianOptions"
+        ]
+      },
+      {
+        "name": "T_AsianOptions: testAnalyticDiscreteGeometricAverageStrike",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "T_AsianOptions"
+        ]
+      },
+      {
+        "name": "T_AsianOptions: testAnalyticContinuousGeometricAveragePrice",
+        "status": "failed",
+        "duration": 2,
+        "message": "QLNet.EuropeanExercise QLNet.EuropeanExercise Asian option with Geometric and QLNet.PlainVanillaPayoff payoff:\r\n            running variable:\r\n            past fixings:\r\n            future fixings:   0\r\n            underlying value: 80\r\n            strike:           85\r\n            dividend yield:   -0.03\r\n            risk-free rate:   0.055\r\n            reference date:   27/09/2024\r\n            maturity:         26/12/2024\r\n            volatility:       0.2\r\n\r\n            expected   value: 4.6922\r\n            calculated value: 4.64631729808559\r\n            error:            0.04588270191440991\r\n            tolerance:        0.0001\r\n            Expected: True\r\n            Actual:   False\r\n          ",
+        "trace": "\r\n                at TestSuite.QAssert.Fail(String message) in C:\\projects\\QLNet\\tests\\QLNet.Tests\\Utilities.cs:line 187\r\n            at TestSuite.T_AsianOptions.REPORT_FAILURE(String greekName, Type averageType, Nullable`1 runningAccumulator, Nullable`1 pastFixings, List`1 fixingDates, StrikedTypePayoff payoff, Exercise exercise, Double s, Double q, Double r, Date today, Double v, Double expected, Double calculated, Double tolerance) in C:\\projects\\Dev\\QLNet\\tests\\QLNet.Tests\\T_AsianOptions.cs:line 39\r\n            at TestSuite.T_AsianOptions.testAnalyticContinuousGeometricAveragePrice() in C:\\projects\\QLNet\\tests\\QLNet.Tests\\T_AsianOptions.cs:line 122\r\n            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\r\n            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\r\n            ",
+        "suite": [
+          "T_AsianOptions"
+        ]
+      },
+      {
+        "name": "T_CapFlooredCoupon: testDecomposition",
+        "status": "passed",
+        "duration": 10,
+        "suite": [
+          "T_CapFlooredCoupon"
+        ]
+      },
+      {
+        "name": "T_CapFlooredCoupon: testLargeRates",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "T_CapFlooredCoupon"
+        ]
+      },
+      {
+        "name": "T_CashFlows: testSettings",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "T_CashFlows"
+        ]
+      },
+      {
+        "name": "T_CashFlows: testDefaultSettlementDate",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "T_CashFlows"
+        ]
+      },
+      {
+        "name": "T_CashFlows: testAccessViolation",
+        "status": "passed",
+        "duration": 1,
+        "suite": [
+          "T_CashFlows"
+        ]
+      },
+      {
+        "name": "T_CashFlows: testNullFixingDays",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "T_CashFlows"
+        ]
+      },
+      {
+        "name": "T_CliquetOption: testPerformanceGreeks",
+        "status": "passed",
+        "duration": 224,
+        "suite": [
+          "T_CliquetOption"
+        ]
+      },
+      {
+        "name": "T_CliquetOption: testGreeks",
+        "status": "passed",
+        "duration": 212,
+        "suite": [
+          "T_CliquetOption"
+        ]
+      },
+      {
+        "name": "T_CliquetOption: testValues",
+        "status": "passed",
+        "duration": 0,
+        "suite": [
+          "T_CliquetOption"
+        ]
+      },
+      {
+        "name": "T_Cms: testCmsSwap",
+        "status": "passed",
+        "duration": 322,
+        "suite": [
+          "T_Cms"
+        ]
+      },
+      {
+        "name": "T_Cms: testParity",
+        "status": "passed",
+        "duration": 218,
+        "suite": [
+          "T_Cms"
+        ]
+      },
+      {
+        "name": "T_Cms: testFairRate",
+        "status": "passed",
+        "duration": 5,
+        "suite": [
+          "T_Cms"
+        ]
+      },
+      {
+        "name": "T_ConvertibleBond: testBond",
+        "status": "passed",
+        "duration": 295,
+        "suite": [
+          "T_ConvertibleBond"
+        ]
+      },
+      {
+        "name": "T_ConvertibleBond: testRegression",
+        "status": "passed",
+        "duration": 11,
+        "suite": [
+          "T_ConvertibleBond"
+        ]
+      },
+      {
+        "name": "T_ConvertibleBond: testOption",
+        "status": "passed",
+        "duration": 121,
+        "suite": [
+          "T_ConvertibleBond"
+        ]
+      },
+      {
+        "name": "T_CPISwap: cpibondconsistency",
+        "status": "passed",
+        "duration": 16,
+        "suite": [
+          "T_CPISwap"
+        ]
+      },
+      {
+        "name": "T_CPISwap: zciisconsistency",
+        "status": "passed",
+        "duration": 2,
+        "suite": [
+          "T_CPISwap"
+        ]
+      },
+      {
+        "name": "T_CPISwap: consistency",
+        "status": "passed",
+        "duration": 7,
+        "suite": [
+          "T_CPISwap"
+        ]
+      },
+      {
+        "name": "T_CreditDefaultSwap: testIsdaEngine",
+        "status": "passed",
+        "duration": 42,
+        "suite": [
+          "T_CreditDefaultSwap"
+        ]
+      },
+      {
+        "name": "T_CreditDefaultSwap: testFairUpfront",
+        "status": "passed",
+        "duration": 14,
+        "suite": [
+          "T_CreditDefaultSwap"
+        ]
+      },
+      {
+        "name": "T_CreditDefaultSwap: testCachedValue",
+        "status": "passed",
+        "duration": 17,
+        "suite": [
+          "T_CreditDefaultSwap"
+        ]
+      },
+      {
+        "name": "T_CreditDefaultSwap: testCachedMarketValue",
+        "status": "passed",
+        "duration": 11,
+        "suite": [
+          "T_CreditDefaultSwap"
+        ]
+      },
+      {
+        "name": "T_CreditDefaultSwap: testImpliedHazardRate",
+        "status": "passed",
+        "duration": 14,
+        "suite": [
+          "T_CreditDefaultSwap"
+        ]
+      },
+      {
+        "name": "T_CreditDefaultSwap: testFairSpread",
+        "status": "passed",
+        "duration": 9,
+        "suite": [
+          "T_CreditDefaultSwap"
+        ]
+      }
+    ]
+  }
+}

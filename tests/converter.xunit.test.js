@@ -17,4 +17,10 @@ describe("xUnit.net converter tests", () => {
         await converter.toFile(options);
         common.compare(options);
     });
+
+    test('xunit-pickles-sample.xml', async() => {
+        let options = common.createOptions('xunit-pickles-sample.xml', 'xunit');
+        await converter.toFile(options);
+        common.compare(options);
+    });
 });

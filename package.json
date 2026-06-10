@@ -55,6 +55,7 @@
     "@types/node": "^25.9.2",
     "jest": "^30.4.2",
     "jest-junit": "^17.0.0",
+    "simple-xml-to-json": "^1.2.7",
     "typescript": "^6.0.3"
   },
   "allowScripts": {

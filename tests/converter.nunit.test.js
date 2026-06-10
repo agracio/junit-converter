@@ -30,4 +30,10 @@ describe("NUnit converter tests", () => {
         common.compare(options);
     });
 
+    test('nunit-pickles-sample.xml', async() => {
+        let options = common.createOptions('nunit-pickles-sample.xml', 'nunit')
+        await converter.toFile(options);
+        common.compare(options);
+    });
+
 });

@@ -2,12 +2,23 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as _ from 'lodash';
 
-import { ConverterOptions, XmlParserOptions, TestSuites, TestSuite } from './interfaces.js';
+import { ConverterOptions, TestSuites, TestSuite } from './interfaces.js';
 import { CTRFReport, Test } from './ctrf.js';
 
 export class CtrfConverter {
 
     private static suites: Record<string, TestSuite> = {};
+
+    private static getStdout(stdin: string[] | undefined): any[] | undefined {
+        let stdout;
+        if(stdin && stdin.length > 0){
+            stdout = [];
+            stdout.push({
+                '$t': stdin.join('\n'),
+            });
+        }
+        return stdout;
+    }
 
     private static parseTests(report: CTRFReport) {
         let suiteName: string = 'Root Suite';
@@ -47,28 +58,14 @@ export class CtrfConverter {
                 this.suites[suiteName].skipped = Number(this.suites[suiteName].skipped) + 1;
             }
 
-            let stdout;
-            let stderr;
+            let stdout = this.getStdout(test.stdout);
+            let stderr = this.getStdout(test.stderr);
 
-            if(test.stdout && test.stdout.length > 0){
-                stdout = [];
-                stdout.push({
-                    '$t': test.stdout.join('\n'),
-                });
-            }
-
-            if(test.stderr && test.stderr.length > 0){
-                stderr = [];
-                stderr.push({
-                    '$t': test.stderr.join('\n'),
-                });
-            }
-
-            let error;
+            let failure;
 
             if(test.message || test.trace){
-                error = [];
-                error.push({
+                failure = [];
+                failure.push({
                     message: test.message,
                     '$t': test.trace,
                 });
@@ -86,37 +83,22 @@ export class CtrfConverter {
                 });
             }          
 
-            // if(test.status.toLowerCase() === 'failed' && (test.message || test.trace)){
-            //     error = [];
-            //     error.push({
-            //         message: test.message,
-            //         '$t': test.trace,
-            //     });
-            // }
-            // if((test.status.toLowerCase() === 'skipped' || test.status.toLowerCase() === 'pending') && (test.message)){
-            //     error = [];
-            //     error.push({
-            //         message: test.message,
-            //         '$t': test.trace,
-            //     });
-            // }
-
             this.suites[suiteName].testcase.push({
                 name: test.name.replace(`${suiteName}: `, ''),
                 classname: suiteName,
                 status: test.status.replace('pending', 'skipped'),
                 time: String(Number(test.duration) / 1000),
-                error: error,
+                failure: failure,
                 'system-out': stdout,
                 'system-err': stderr,
                 properties: properties,
             });
-
         });
     }
 
     static convert(options: ConverterOptions): TestSuites{
         const report = JSON.parse(fs.readFileSync(options.testFile, 'utf8')) as CTRFReport;
+        this.suites = {};
         const duration = report.results.summary.duration
                 ? Number(report.results.summary.duration) / 1000
                 : _.sumBy(report.results.tests, function (test: Test) {
@@ -139,11 +121,10 @@ export class CtrfConverter {
             ],
         };
 
+        if(options.saveIntermediateFiles){
+            fs.writeFileSync(path.join(options.reportDir, `${path.parse(options.testFile).name}-converted.json`), JSON.stringify(converted, null, 2), 'utf8');
+        }
+
         return converted;
     }
-
 }
-
-export const convert = CtrfConverter.convert;
-
-export default { convert };
