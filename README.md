@@ -1,8 +1,10 @@
 ## Test report files to JUnit converter
 
 [![Actions Status][github-img]][github-url]
-[![Git Issues][issues-img]][issues-url]
-[![Closed Issues][closed-issues-img]][closed-issues-url]
+
+[//]: # ([![Git Issues][issues-img]][issues-url])
+
+[//]: # ([![Closed Issues][closed-issues-img]][closed-issues-url])
 
 [//]: # ([![Codacy Badge][codacy-img]][codacy-url])
 
@@ -61,7 +63,7 @@
 
 ### CTRF
 
-- Converts `parameters` to JUnit &lt;properties&gt;
+- Converts `parameters` to JUnit &lt;properties&gt;.
 - Converts `stdout` to JUnit &lt;system-out&gt;.
 - Converts `stderr` to JUnit &lt;system-err&gt;.
 - Converts `message` and `trace` to JUnit &lt;failure&gt; message with stack trace.  
@@ -104,7 +106,6 @@ npx --yes junit-converter --testFile mytests/nunit.xml --testType nunit
 npm i -g junit-converter
 junit-converter --testFile mytests/nunit.xml --testType nunit
 ```
-
 
 ### Options
 
@@ -150,5 +151,5 @@ junit-converter --testFile mytests/nunit.xml --testType nunit
 [codacy-url]: https://app.codacy.com/gh/agracio/junit-converter/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
 
 [github-img]: https://github.com/agracio/junit-converter/workflows/Test/badge.svg
-[github-url]: https://github.com/agracio/edge-js/junit-converter/workflows/main.yml
+[github-url]: https://github.com/agracio/junit-converter/actions/workflows/main.yml
 
